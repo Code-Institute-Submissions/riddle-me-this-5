@@ -1,18 +1,10 @@
+# Pratical Python Milestone Project
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+## Riddle-Me-This
 
-
-Hi there! Welcome to Cloud9 IDE!
-
-To get you started, create some files, play with the terminal,
-or visit http://docs.c9.io for our documentation.
-If you want, you can also go watch some training videos at
-http://www.youtube.com/user/c9ide.
-
-Happy coding!
-The Cloud9 IDE team
+A web application game that asks players to guess the answer to a pictorial or text-based riddle.
+The player is presented with an image or text that contains the riddle. Players enter their answer into a textarea and submit their answer using a form.
+If a player guesses correctly, they are redirected to the next riddle.
+If a player guesses incorrectly, their incorrect guess is stored and printed below the riddle. The textarea is cleared so they can guess again.
+Multiple players can play an instance of the game at the same time. Users are identified by a unique username.
+Create a leaderboard that ranks top scores for all users.
