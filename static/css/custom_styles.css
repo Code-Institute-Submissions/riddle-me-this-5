@@ -6,3 +6,11 @@
 h1{
     color: black;
 }
+
+.bg-primary{
+    color: red;
+}
+
+.card-img-top{
+    padding: 15px;
+}
