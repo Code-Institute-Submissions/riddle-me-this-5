@@ -4,11 +4,9 @@
 }
 
 .card-img-top{
-    padding: 150px;
-}
-
-@media (min-width: 992px) {
-  .card-img-top{
     padding: 80px;
 }
-  }
+
+.card {
+  border: 1.25px solid #00cc99;
+}
