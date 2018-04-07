@@ -4,7 +4,10 @@
 }
 
 .card-img-top{
-    padding: 80px;
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+    align-self:center;
 }
 
 .card {
