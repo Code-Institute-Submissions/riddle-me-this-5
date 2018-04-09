@@ -58,7 +58,6 @@
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
       <div class="container">
-        <x-gif src="static/img/earth_spinning.gif" speed="0.6"></x-gif><!-- not currently working, need to investigate further-->
         <img class="img-fluid mb-5 d-block mx-auto" src="static/img/earth_spinning.gif" alt="globe icon" id="main_img" height="250px" width="250">
         <h1 class="text-uppercase mb-0">Quiz Game</h1>
         <hr class="star-light">
@@ -161,12 +160,12 @@
         <h4 class="modal-title">African Cities Quiz</h4>
       </div>
       <div class="modal-body">
-        <p> {{ quiz_data[0]["Question"] }}</p>
+        <p><img src={{ quiz_data[0]["image_source"] }} alt="kenya flag" id="kenya"> {{ quiz_data[0]["question"] }}</p>
         <div class="container">
        <form>
-          <label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ quiz_data[0]["Option1"] }} </label>
-          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["Option2"] }} </label>
-          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["Answer"] }} </label>
+          <label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ quiz_data[0]["option1"] }} </label>
+          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["option2"] }} </label>
+          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["answer"] }} </label>
         </form>
       </div>
       <div class="modal-footer">

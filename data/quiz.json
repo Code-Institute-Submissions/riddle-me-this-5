@@ -1,9 +1,10 @@
 [
     {
-        "Question": "What is the capital city of Kenya?",
-        "Option1": "Lusaka",
-        "Option2": "Kigali",
-        "Answer": "Nairobi"
+        "question": "What is the capital city of Kenya?",
+        "option1": "Lusaka",
+        "option2": "Kigali",
+        "answer": "Nairobi",
+        "image_source": "static/img/portfolio/africa/kenya.png"
     }
     
 ]
