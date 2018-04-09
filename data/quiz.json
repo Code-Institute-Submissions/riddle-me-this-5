@@ -1,6 +1,8 @@
 [
     {
         "Question": "What is the capital city of Kenya?",
+        "Option1": "Lusaka",
+        "Option2": "Kigali",
         "Answer": "Nairobi"
     }
     

@@ -162,12 +162,19 @@
       </div>
       <div class="modal-body">
         <p> {{ quiz_data[0]["Question"] }}</p>
+        <div class="container">
+       <form>
+          <label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ quiz_data[0]["Option1"] }} </label>
+          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["Option2"] }} </label>
+          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["Answer"] }} </label>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
+    </div>
     </div>
     </div>
     
