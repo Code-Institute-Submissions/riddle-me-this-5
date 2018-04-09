@@ -18,6 +18,6 @@ Folders that were not necessary were then deleted.
 
 The template used is called Freelancer and is downloadable from https://startbootstrap.com/template-overviews/freelancer/
 
-## Images Credits
+## Image Credits
 
 All 6 Continent Images used were designed by Vexels.  www.vexels.com 

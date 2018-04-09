@@ -7,7 +7,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    data = []
+    with open("data/quiz.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("index.html", quiz_data=data)
 
 
 if __name__ == '__main__':
