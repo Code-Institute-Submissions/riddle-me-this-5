@@ -20,4 +20,6 @@ The template used is called Freelancer and is downloadable from https://startboo
 
 ## Image Credits
 
-All 6 Continent Images used were designed by Vexels.  www.vexels.com 
+All 6 Continent Images used were designed by Vexels.  www.vexels.com
+
+## Testing
