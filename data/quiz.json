@@ -5,6 +5,14 @@
         "option2": "Kigali",
         "answer": "Nairobi",
         "image_source": "static/img/portfolio/africa/kenya.png"
+    },
+    
+    {
+        "question": "Which of the following is the largest city in South Africa?",
+        "option1": "Pretoria",
+        "option2": "Cape Town",
+        "answer": "Johannesburg",
+        "image_source": "static/img/portfolio/africa/kenya.png"
     }
     
 ]
