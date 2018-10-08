@@ -19,6 +19,22 @@ def africa():
 @app.route('/asia_quiz')
 def asia():
     return render_template("asia_quiz.html")
+    
+@app.route('/australia_quiz')
+def australia():
+    return render_template("australia_quiz.html")
+    
+@app.route('/europe_quiz')
+def europe():
+    return render_template("europe_quiz.html")
+    
+@app.route('/n_america_quiz')
+def n_america():
+    return render_template("n_america_quiz.html")
+
+@app.route('/s_america_quiz')
+def s_america():
+    return render_template("s_america_quiz.html")
 
 
 if __name__ == '__main__':
