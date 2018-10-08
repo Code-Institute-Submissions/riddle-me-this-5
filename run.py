@@ -7,13 +7,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    data = []
-    with open("data/quiz.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template("index.html", quiz_data=data)
+    return render_template("index.html")
     
 @app.route('/africa_quiz')
 def africa():
+    data = []
+    with open("data/africa/africa_quiz.json", "r") as json_data:
+        data = json.load(json_data)
     return render_template("africa_quiz.html", region="Africa")
     
 @app.route('/asia_quiz')

@@ -45,7 +45,7 @@
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#howto">How To Play</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#quiz">Start Quiz</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#quiz">Select A Quiz</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
@@ -81,10 +81,10 @@
       </div>
     </section>
     
-    <!-- Quiz Questions Section -->
+    <!-- Quiz Selction Section -->
     <section class="portfolio" id="quiz">
       <div class="container">
-        <h2 class="text-center text-uppercase text-secondary mb-0">Start Quiz</h2>
+        <h2 class="text-center text-uppercase text-secondary mb-0">Quiz Selection</h2>
         <hr class="star-dark mb-5">
         <h4 class="text-center text-uppercase text-secondary mb-0">Which Continent Do You Know Best?</h4></br></br></br>
        
@@ -182,32 +182,17 @@
         <h4 class="modal-title">African Cities Quiz</h4>
       </div>
       <div class="modal-body">
-        <p><img src={{ quiz_data[0]["image_source"] }} alt="kenya flag" id="kenya"> {{ quiz_data[0]["question"] }}</p>
-        <div class="container">
-       <form>
-          <label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ quiz_data[0]["option1"] }} </label>
-          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["option2"] }} </label>
-          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["answer"] }} </label>
+        <form method="POST">
+          <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input id="username" type="text" class="form-control" name="username" placeholder="Username">
+          </div></br>
+          <button name="redirect" class="btn btn-primary" onclick="location.href {{ url_for('africa') }}" value="Redirect">Start Quiz</button>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
-    
-    <div class="modal-body">
-        <p><img src={{ quiz_data[1]["image_source"] }} alt="south africa flag" id="kenya"> {{ quiz_data[1]["question"] }}</p>
-        <div class="container">
-       <form>
-          <label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ quiz_data[1]["option1"] }} </label>
-          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[1]["option2"] }} </label>
-          <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[1]["answer"] }} </label>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-    
     </div>
 
     </div>
@@ -223,29 +208,16 @@
         <h4 class="modal-title">Asian Cities Quiz</h4>
       </div>
       <div class="modal-body">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-        magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-        quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-        ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-        dolor in hendrerit in vulputate velit esse molestie consequat,
-        vel illum dolore eu feugiat nulla facilisis at vero eros et
-        accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi.
-        Nam liber tempor cum soluta nobis eleifend option congue
-        nihil imperdiet doming id quod mazim placerat facer possim
-        assum. Typi non habent claritatem insitam; est usus legentis
-        in iis qui facit eorum claritatem. Investigationes
-        demonstraverunt lectores legere me lius quod ii legunt saepius.
-        Claritas est etiam processus dynamicus, qui sequitur mutationem
-        consuetudium lectorum. Mirum est notare quam littera gothica,
-        quam nunc putamus parum claram, anteposuerit litterarum formas
-        humanitatis per seacula quarta decima et quinta decima. Eodem
-        modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
-        in futurum.</p>
+        <form method="POST">
+          <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <input id="username" type="text" class="form-control" name="username" placeholder="Username">
+          </div></br>
+          <button name="redirect" class="btn btn-primary" onclick="location.href {{ url_for('asia') }}" value="Redirect">Start Quiz</button>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
       </div>
     </div>
 
