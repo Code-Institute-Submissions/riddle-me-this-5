@@ -50,6 +50,9 @@
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
             </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href={{ url_for('africa') }}>Test</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -65,7 +68,7 @@
       </div>
     </header>
 
-    <!-- About Section -->
+    <!-- How To Play Section -->
     <section class="bg-dark text-white mb-0" id="howto">
       <div class="container">
         <h2 class="text-center text-uppercase text-white">How To Play</h2>
@@ -108,6 +111,7 @@
           <h4 class="card-title">Asia</h4>
           <p class="card-text">Click The Below For Questions On Asian Cities</p>
           <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modal-2">Select Asia</button>
+          <a href={{ url_for('asia') }}><button type="button" class="btn btn-primary btn-md">Test</button></a>
           </div>
         </div>
         </div>
@@ -144,7 +148,7 @@
           <div class="card-body">
           <h4 class="card-title">North America</h4>
           <p class="card-text">Click The Below For Questions On North American Cities</p>
-          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modal-5">Select N America</button>
+          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modal-5">Select N America</button></a>
           </div>
         </div>
         </div>
@@ -182,12 +186,12 @@
           <label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ quiz_data[0]["option1"] }} </label>
           <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["option2"] }} </label>
           <label class="radio-inline"><input type="radio" name="optradio"> {{ quiz_data[0]["answer"] }} </label>
+          </br>{% print "Is it wrong to use python in this way" %}
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
-    </div>
     
     <div class="modal-body">
         <p><img src={{ quiz_data[1]["image_source"] }} alt="south africa flag" id="kenya"> {{ quiz_data[1]["question"] }}</p>
@@ -201,6 +205,8 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
+    </div>
+    
     </div>
 
     </div>

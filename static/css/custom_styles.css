@@ -36,6 +36,16 @@ input[type=radio]{
     background-color: #343a40;
 }
 
+#africa hr.star-light:after {
+    color: #fff;
+    background-color: #343a40;
+}
+
+#africa{
+    padding-top: 150px;
+    background-color: #fff;
+}
+
 ol {
     display: block;
     list-style-type: decimal;
