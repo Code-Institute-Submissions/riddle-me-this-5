@@ -36,12 +36,12 @@ input[type=radio]{
     background-color: #343a40;
 }
 
-#africa hr.star-light:after {
+#quiz_header hr.star-light:after {
     color: #fff;
-    background-color: #343a40;
+    background-color: #18BC9C;
 }
 
-#africa{
+#quiz_header{
     padding-top: 150px;
     background-color: #fff;
 }
