@@ -22,4 +22,10 @@ The template used is called Freelancer and is downloadable from https://startboo
 
 All 6 Continent Images used were designed by Vexels.  www.vexels.com
 
+## Mockups / Wireframes
+
+The following are the initial mockups of each page/section - the final prodcut may vary slightly depending on functionaility:
+
+
+
 ## Testing
