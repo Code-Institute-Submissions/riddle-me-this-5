@@ -22,4 +22,23 @@ The template used is called Freelancer and is downloadable from https://startboo
 
 All 6 Continent Images used were designed by Vexels.  www.vexels.com
 
+## Mockups / Wireframes
+
+The following are the initial mockups of each page/section - the final prodcut may vary slightly depending on functionaility:
+
+### Sample; Index Page (Section 1 - Masthead):
+
+![index1](https://user-images.githubusercontent.com/28737216/46905476-4761de00-ceec-11e8-9697-a98ed4ba3694.PNG)
+
+### Sample; Index Page (Section 2 - How To Play):
+
+![index2](https://user-images.githubusercontent.com/28737216/46905489-6e201480-ceec-11e8-97c6-798edd54d395.PNG)
+
+### Sample; Index Page (Section 3 - Quiz Selection):
+
+![index3](https://user-images.githubusercontent.com/28737216/46905492-7710e600-ceec-11e8-990e-c86b83ab2834.PNG)
+
+### Sample; Index Page (Section 4 - Contact Form):
+
+![index4](https://user-images.githubusercontent.com/28737216/46905575-cc012c00-ceed-11e8-92ac-30050322ac49.PNG)
 ## Testing
