@@ -38,5 +38,7 @@ The following are the initial mockups of each page/section - the final prodcut m
 
 ![index3](https://user-images.githubusercontent.com/28737216/46905492-7710e600-ceec-11e8-990e-c86b83ab2834.PNG)
 
+### Sample; Index Page (Section 4 - Contact Form):
 
+![index4](https://user-images.githubusercontent.com/28737216/46905575-cc012c00-ceed-11e8-92ac-30050322ac49.PNG)
 ## Testing
