@@ -15,20 +15,16 @@
 }
 
 .radio-inline{
-    padding-left: 15px;
+    padding-left: 5px;
+    font-size: 24px;
 }
 
 input[type=radio]{
   width   : 28px;
-  margin  : 0;
+  height: 20px;
+  margin  : 5px;
   padding : 0;
   opacity : 1;
-}
-
-#kenya{
-    height: 70px;
-    width: 70px;
-    padding: 10px;
 }
 
 #howto hr.star-light:after {
@@ -44,6 +40,20 @@ input[type=radio]{
 #quiz_header{
     padding-top: 150px;
     background-color: #fff;
+}
+
+img{
+    height: 125px;
+    width: 125px;
+    padding: 20px;
+}
+
+#right_column {
+  border-left: solid 4px #2C3E50;
+}
+
+#skip{
+    margin-left:20px;
 }
 
 ol {

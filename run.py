@@ -1,24 +1,41 @@
 import os
 import json
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    """Used to capture Username when START QUIZ button is selected"""
+    if request.method == "POST":
+        with open("data/africa/users.json", "a") as user_list:
+            user_list.write(request.form["username"] + "\n")
+        return redirect(request.form["username"])
+    else:
+        return render_template("index.html")
+        
+@app.route('/<username>')
+def user(username):
+    data = []
+    with open("data/africa/africa_quiz.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("africa_quiz.html", region="Africa", africa_data=data)
+        
     
 @app.route('/africa_quiz')
 def africa():
     data = []
     with open("data/africa/africa_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("africa_quiz.html", region="Africa")
+    return render_template("africa_quiz.html", region="Africa", africa_data=data)
     
 @app.route('/asia_quiz')
 def asia():
-    return render_template("asia_quiz.html", region="Asia")
+    data=[]
+    with open("data/asia/asia_quiz.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("asia_quiz.html", region="Asia", asia_data=data)
     
 @app.route('/australia_quiz')
 def australia():

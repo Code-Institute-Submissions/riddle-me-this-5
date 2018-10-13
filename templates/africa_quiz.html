@@ -2,11 +2,30 @@
 {% block content %}
 
     <section class="masthead bg-primary text-white text-center" id="quiz_header">
-      <div class="container">
-        <h2 class="text-center text-uppercase text-white">{{ region }} Quiz</h2>
-        <hr class="star-light mb-5">
-        <h3 class="text-center text-uppercase text-white">How many capitals do you know in the countries of {{ region }}</h3></br>
+      
+    <div class="container-fluid">
+        <div class="row">
+			  <div class="col-md-5 mb-5 mb-lg-0">
+    			<h2 class="text-center text-uppercase text-white">{{ region }} Quiz</h2>
+    			<hr class="star-light mb-5">
+    			<img class="card-img-top" src="static/img/portfolio/africa.png" alt="Africa">
+    			<h3> Welcome {{ username }} </h3></br>
+    			<h3 class="text-center text-uppercase text-white">How many capitals do you know in the countries of {{ region }}</h3></br>
+			  </div>
+		
+			 <div class="col-md-7 mb-7 mb-lg-0" id="right_column">
+    			<h3>{{ africa_data[0]["question"] }}</h3>
+    			<img src={{ africa_data[0]["image_source"] }} alt="kenya flag" id="kenya">
+    			<form>
+    				<label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ africa_data[0]["option1"] }} </label>
+    				<label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ africa_data[0]["option2"] }} </label>
+    				<label class="radio-inline radio-danger"><input type="radio" name="optradio"> {{ africa_data[0]["option3"] }} </label>
+			    </form></br>
+			    <button type="button" class="btn btn-info">Submit</button><button type="button" class="btn btn-info" id="skip">Skip</button>
+			</div>
       </div>
+	  </div>
+      
     </section>
     
 {% endblock %}

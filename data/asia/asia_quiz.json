@@ -1,10 +1,20 @@
 [
     {
-        "question": "What is the capital city of Kenya?",
-        "option1": "Lusaka",
-        "option2": "Kigali",
-        "answer": "Nairobi",
-        "image_source": "static/img/portfolio/africa/kenya.png"
+        "question": "What is the capital city of Maylasia?",
+        "option1": "New Dheli",
+        "option2": "Kuala Lumpur",
+        "option3": "Jakarta",
+        "answer": "Kuala Lumpur",
+        "image_source": "static/img/portfolio/asia/malaysia.png"
+    },
+    
+    {
+        "question": "Which of the following is the city in Ehtiopia?",
+        "option1": "Addis Ababa",
+        "option2": "Johannesburg",
+        "option3": "Lusaka",
+        "answer": "Addis Ababa",
+        "image_source": "static/img/portfolio/africa/ethiopia.png"
     },
     
     {
