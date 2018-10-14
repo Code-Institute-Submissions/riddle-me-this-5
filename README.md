@@ -55,13 +55,13 @@ Upon moving to the Quiz Selection area, they will be presented with the followin
 
 ![quizselect](https://user-images.githubusercontent.com/28737216/46915030-d3800e00-cf9d-11e8-8deb-0a1c2231ab86.PNG)
 
-The user then selects one the button for the quiz of their choice, and this will open the following modal which allows them to enter their Username:
+The user then selects the button for the quiz of their choice, and this will open the following modal which allows them to enter their Username:
 
 ![username](https://user-images.githubusercontent.com/28737216/46915087-6b7df780-cf9e-11e8-9e5e-6ce690a39362.PNG)
 
 "Close" will simply close the modal and return them to the Quiz Selection, whereas "Start Quiz" will redircet them to the appropriate Quiz Page based on their original choice:
 
 ![quizpage](https://user-images.githubusercontent.com/28737216/46915116-b7c93780-cf9e-11e8-93dc-3c923e63e0d5.PNG)
-(example of Africa Quiz Page - with Welcome note on the left, and questions on the right {for lager screens})
+(example of Africa Quiz Page - with Welcome Note on the left, and questions on the right {for lager screens})
 
 ## Testing
