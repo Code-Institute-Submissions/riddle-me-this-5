@@ -1,6 +1,6 @@
 # Pratical Python Milestone Project
 
-## Riddle-Me-This
+## Riddle-Me-This (Brief)
 
 A web application game that asks players to guess the answer to a pictorial or text-based riddle.
 The player is presented with an image or text that contains the riddle. Players enter their answer into a textarea and submit their answer using a form.
@@ -41,4 +41,27 @@ The following are the initial mockups of each page/section - the final prodcut m
 ### Sample; Index Page (Section 4 - Contact Form):
 
 ![index4](https://user-images.githubusercontent.com/28737216/46905575-cc012c00-ceed-11e8-92ac-30050322ac49.PNG)
+
+## UX
+
+Users knowledge of world capital cities will be tested, with each section being scored out of 10 and a chance to claim their place on the relevant leaderboard.
+
+Upon visiting the site, the user will first be presented with the opening page (index.html) with options to see "How To Play" or "Select a Quiz".  Selecting "How To Play", will bring them to the following instructions section:
+
+![howtoplay](https://user-images.githubusercontent.com/28737216/46914999-7a17df00-cf9d-11e8-82c2-e63205a09aa4.PNG)
+(provisional instructions - due to change as project development progresses)
+
+Upon moving to the Quiz Selection area, they will be presented with the following options, per continent:
+
+![quizselect](https://user-images.githubusercontent.com/28737216/46915030-d3800e00-cf9d-11e8-8deb-0a1c2231ab86.PNG)
+
+The user then selects one the button for the quiz of their choice, and this will open the following modal which allows them to enter their Username:
+
+![username](https://user-images.githubusercontent.com/28737216/46915087-6b7df780-cf9e-11e8-9e5e-6ce690a39362.PNG)
+
+"Close" will simply close the modal and return them to the Quiz Selection, whereas "Start Quiz" will redircet them to the appropriate Quiz Page based on their original choice:
+
+![quizpage](https://user-images.githubusercontent.com/28737216/46915116-b7c93780-cf9e-11e8-93dc-3c923e63e0d5.PNG)
+(example of Africa Quiz Page - with Welcome note on the left, and questions on the right {for lager screens})
+
 ## Testing
