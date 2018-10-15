@@ -185,13 +185,13 @@
         <form method="POST">
           <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input id="username" type="text" class="form-control" name="username" placeholder="Enter a Username">
+          <input id="africa_username" type="text" class="form-control" name="africa_username" placeholder="Enter a Username">
           </div></br>
           <button name="redirect" class="btn btn-primary" value="Redirect">Start Quiz</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
       </div>
     </div>
 
@@ -211,7 +211,7 @@
         <form method="POST">
           <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input id="username" type="text" class="form-control" name="username" placeholder="Username">
+          <input id="asia_username" type="text" class="form-control" name="asia_username" placeholder="Username">
           </div></br>
           <button name="redirect" class="btn btn-primary" onclick="location.href {{ url_for('asia') }}" value="Redirect">Start Quiz</button>
         </form>
@@ -502,6 +502,13 @@
 
     <!-- Custom scripts for this template -->
     <script src="{{ url_for('static', filename='js/freelancer.min.js') }}"></script>
+
+    <script>
+    function myFunction() {
+    window.location.href = "http://www.w3schools.com";
+    }
+    
+    </script>
 
   </body>
 

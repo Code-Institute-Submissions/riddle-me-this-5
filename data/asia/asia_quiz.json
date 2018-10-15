@@ -9,20 +9,20 @@
     },
     
     {
-        "question": "Which of the following is the city in Ehtiopia?",
-        "option1": "Addis Ababa",
-        "option2": "Johannesburg",
-        "option3": "Lusaka",
-        "answer": "Addis Ababa",
-        "image_source": "static/img/portfolio/africa/ethiopia.png"
+        "question": "Which of the following is the capital city of the Philippines?",
+        "option1": "Jakarta",
+        "option2": "Bangkok",
+        "option3": "Manila",
+        "answer": "Manila",
+        "image_source": "static/img/portfolio/asia/philippines.png"
     },
     
     {
-        "question": "Which of the following is the largest city in South Africa?",
-        "option1": "Pretoria",
-        "option2": "Cape Town",
-        "answer": "Johannesburg",
-        "image_source": "static/img/portfolio/africa/south_africa.png"
+        "question": "Which of the following is the capital of Cambodia?",
+        "option1": "Hanoi",
+        "option2": "Phom Phen",
+        "answer": "Kabul",
+        "image_source": "static/img/portfolio/asia/cambodia.png"
     }
     
 ]
