@@ -14,7 +14,7 @@ Full project is deployed on Heroku at this <a href="https://world-cities-quiz.he
 Method of deployment:
 1. New Heroku Python App created, entitled "world-cities-quiz"
 2. Launched Heroku in the C9 environment
-3. Git repo was already initiated, so ran `git remote add heroku https://git.heroku.com/world-cities-quiz.git` to allow a push to the Heroku server
+3. Git repo was already initiated, so ran ```git remote add heroku https://git.heroku.com/world-cities-quiz.git``` to allow a push to the Heroku server
 4. To prevent a "push fail", the requirements.txt was update using `sudo pip3 freeze --local >requirements.txt` to keep track of dependancies
 5. A Procfile was created using the following code: `echo web: python run.py > Procfile` to inform Heroku which file to run for initiating the app
 6. To esnure that Web Processes are running the following command line was run in C9: `heroku ps:scale web=1`
