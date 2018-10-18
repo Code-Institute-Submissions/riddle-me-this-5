@@ -39,6 +39,7 @@ Technologies used in this project include:
   ~~~~
 * Flask Microframework: Flask was used to extend pythons functionality to the frond end.
 * Balsamiq: Used to create the below wireframes.
+* Cloud9 IDE used as development environment workspace
 
 ## Bootstrap template used
 
