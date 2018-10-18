@@ -11,7 +11,7 @@ Create a leaderboard that ranks top scores for all users.
 
 Full project is deployed on Heroku at this <a href="https://world-cities-quiz.herokuapp.com/" target="_blank" >location</a>.
 
-Method of deployment:
+**_Method of Deployment:_**
 1. New Heroku Python App created, entitled "world-cities-quiz"
 2. Launched Heroku in the C9 environment
 3. Git repo was already initiated, so ran **```git remote add heroku https://git.heroku.com/world-cities-quiz.git```** to allow a push to the Heroku server
