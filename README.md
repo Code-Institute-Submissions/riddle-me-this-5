@@ -9,6 +9,8 @@ If a player guesses incorrectly, their incorrect guess is stored and printed bel
 Multiple players can play an instance of the game at the same time. Users are identified by a unique username.
 Create a leaderboard that ranks top scores for all users.
 
+Full project is deployed on Heroku at this <a href="https://world-cities-quiz.herokuapp.com/" target="_blank" >location</a>.
+
 ## Bootstrap template used
 
 As the main focus of this project is Python and the use of the Flask Framework, it was felt that there was no need to start the HTML & CSS from scratch
