@@ -5,14 +5,10 @@ from flask import Flask, render_template, redirect, request
 app = Flask(__name__)
 
 
-"""
-Reusable function for opening a file and writing to it
-"""
-def write_file(filename, message):
-	with open (filename, 'a') as file:
-		file.writelines(message + "\n")
 
 """ Routing for Index.html """
+
+""" need a different routing for each submit button on each modal ?? """
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -33,14 +29,47 @@ def africa_user(africa_username):
     with open("data/africa/africa_quiz.json", "r") as json_data:
         data = json.load(json_data)
         index = 0
-     
-        if request.method == "POST":
+    
+    if request.method == "POST":
+        score = 0
+        user_answer = request.form["user_answer"]
+        """attempting to set variable to the value of that from the json file """
+        correct_answer = data['answer']
+        
+        
+        """ below code will only write to file if correct answer is provided """
+        
+        if user_answer == correct_answer:
             with open("data/africa/africa_correct.json", "a") as answer:
                 answer.write(request.form["user_answer"] + "\n")
-            return redirect(request.form["user_answer"])
+                score +=1
+            
+        else:
+            with open("data/africa/africa_incorrect.json", "a") as answer:
+                answer.write(request.form["user_answer"] + "\n")
+                
+    
+    
+    """ following code found on stackoverflow """
+    """ hoping to use it to sort the "scores" json data file - may not be what I'm looking for"""
+                
+    def extract_time(json):
+        try:
+        # Also convert to int since update_time will be string.  When comparing
+        # strings, "10" is smaller than "2".
+            return int(json['page']['update_time'])
+        except KeyError:
+            return 0
+
+    # lines.sort() is more efficient than lines = lines.sorted()
+    """ lines.sort(key=extract_time, reverse=True) """
         
+    
+    
     return render_template("africa_quiz.html", region="Africa", africa_data=data)
-        
+
+
+""" possibly no need for the following section as it is all covered above under the routing for "africa_username" """
     
 @app.route('/africa_quiz')
 def africa():
@@ -50,12 +79,21 @@ def africa():
     return render_template("africa_quiz.html", region="Africa", africa_data=data)
 
 
+
+
+
+
+
+
+
+
+
 """ Routing for Asia Quiz Data """  
 
-@app.route('/<asia_username>')
+@app.route('/<asia_username>', methods=["GET", "POST"])
 def asia_user(asia_username):
     data = []
-    with open("data/asai/asia_quiz.json", "r") as json_data:
+    with open("data/asia/asia_quiz.json", "r") as json_data:
         data = json.load(json_data)
     return render_template("asia_quiz.html", region="Asia", asia_data=data)
     
@@ -66,18 +104,30 @@ def asia():
     with open("data/asia/asia_quiz.json", "r") as json_data:
         data = json.load(json_data)
     return render_template("asia_quiz.html", region="Asia", asia_data=data)
+
+
+""" Routing for Australia Quiz Data """  
     
 @app.route('/australia_quiz')
 def australia():
     return render_template("australia_quiz.html", region="Australia")
-    
+
+
+""" Routing for Europe Quiz Data """  
+
 @app.route('/europe_quiz')
 def europe():
     return render_template("europe_quiz.html", region="Europe")
-    
+
+
+""" Routing for N America Quiz Data """  
+
 @app.route('/n_america_quiz')
 def n_america():
     return render_template("n_america_quiz.html", region="North America")
+
+
+""" Routing for S America Quiz Data """  
 
 @app.route('/s_america_quiz')
 def s_america():
@@ -88,6 +138,3 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
-            
-def quiz():
-    print("where will this print to??")

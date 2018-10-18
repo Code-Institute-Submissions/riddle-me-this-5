@@ -56,6 +56,11 @@ img{
     margin-left:20px;
 }
 
+#user_answer {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
 ol {
     display: block;
     list-style-type: decimal;
