@@ -9,6 +9,20 @@ If a player guesses incorrectly, their incorrect guess is stored and printed bel
 Multiple players can play an instance of the game at the same time. Users are identified by a unique username.
 Create a leaderboard that ranks top scores for all users.
 
+Full project is deployed on Heroku at this <a href="https://world-cities-quiz.herokuapp.com/" target="_blank" >location</a>.
+
+**_Method of Deployment:_**
+1. New Heroku Python App created, entitled "world-cities-quiz"
+2. Launched Heroku in the C9 environment
+3. Git repo was already initiated, so ran **```git remote add heroku https://git.heroku.com/world-cities-quiz.git```** to allow a push to the Heroku server
+4. To prevent a "push fail", the requirements.txt was updated using the following command **```sudo pip3 freeze --local >requirements.txt```** to keep track of dependancies
+5. A Procfile was created using the following code: **```echo web: python run.py > Procfile```** to inform Heroku which file to run for initiating the app
+6. To esnure that Web Processes are running the following command line was run in C9: **```heroku ps:scale web=1```**
+7. Config Vars set as follows: **IP=0.0.0.0 and PORT=5000**
+8. Lastly, dynos were restarted in Heroku app
+9. Code added, committed and pushed to both GitHub and Heroku
+10. App launched successfully
+
 ## Bootstrap template used
 
 As the main focus of this project is Python and the use of the Flask Framework, it was felt that there was no need to start the HTML & CSS from scratch
