@@ -23,6 +23,23 @@ Full project is deployed on Heroku at this <a href="https://world-cities-quiz.he
 9. Code added, committed and pushed to both GitHub and Heroku
 10. App launched successfully
 
+## Technologies used
+
+Technologies used in this project include:
+
+* Bootstrap: Bootstrap was used for a basic HTML template.
+* HTML5/CSS: Used for the layout and styling of the application.
+* Python 3.4.3: The back end functionality of the application was written entirely in python 3.0.
+  Was originally running on Python 2, following code was executed to upgrade:
+  ~~~~
+  jagger81:~/workspace (master) $ sudo mv /usr/bin/python /usr/bin/python2
+  jagger81:~/workspace (master) $ sudo ln -s /usr/bin/python3 /usr/bin/python
+  jagger81:~/workspace (master) $ python --version
+  Python 3.4.3
+  ~~~~
+* Flask Microframework: Flask was used to extend pythons functionality to the frond end.
+* Balsamiq: Used to create the below wireframes.
+
 ## Bootstrap template used
 
 As the main focus of this project is Python and the use of the Flask Framework, it was felt that there was no need to start the HTML & CSS from scratch
