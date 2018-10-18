@@ -32,6 +32,11 @@ input[type=radio]{
     background-color: #343a40;
 }
 
+#leaderboard hr.star-light:after {
+    color: #fff;
+    background-color: #343a40;
+}
+
 #quiz_header hr.star-light:after {
     color: #fff;
     background-color: #18BC9C;
