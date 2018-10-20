@@ -21,7 +21,7 @@ def africa_get_user():
         with open("data/africa/africa_users.json", "a") as user_list:
             user_list.write(request.form["africa_username"] + "\n")
         return redirect(request.form["africa_username"])
-    return render_template("africa_get_user.html", region="Asia")
+    return render_template("africa_get_user.html", region="Africa")
     
 
 @app.route('/<africa_username>', methods=["GET", "POST"])
@@ -50,23 +50,6 @@ def africa_user(africa_username):
                 answer.write(request.form["user_answer"] + "\n")
     
     return render_template("africa_quiz.html", region="Africa", africa_data=data)
-
-
-""" possibly no need for the following section as it is all covered above under the routing for "africa_username" """
-    
-@app.route('/africa_quiz')
-def africa():
-    data = []
-    with open("data/africa/africa_quiz.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template("africa_quiz.html", region="Africa", africa_data=data)
-
-
-
-
-
-
-
 
 
 
