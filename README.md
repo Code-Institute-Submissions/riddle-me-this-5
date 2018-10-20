@@ -96,4 +96,9 @@ The user then selects the button for the quiz of their choice, and this will ope
 ![quizpage](https://user-images.githubusercontent.com/28737216/46915116-b7c93780-cf9e-11e8-93dc-3c923e63e0d5.PNG)
 (example of Africa Quiz Page - with Welcome Note on the left, and questions on the right {for lager screens})
 
+### Flowchart of processes
+
+![flowchart](https://user-images.githubusercontent.com/28737216/47255466-88686e00-d469-11e8-9d4b-5ca332dfc775.PNG)
+
+
 ## Testing
