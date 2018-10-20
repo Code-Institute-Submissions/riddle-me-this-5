@@ -8,20 +8,21 @@ app = Flask(__name__)
 
 """ Routing for Index.html """
 
-""" need a different routing for each submit button on each modal ?? """
-
-@app.route('/', methods=["GET", "POST"])
+@app.route('/')
 def index():
-    """Used to capture Username when START QUIZ button is selected"""
+        return render_template("index.html")
+
+
+""" Routing for Africa Quiz Data """
+
+@app.route('/africa_get_user', methods=["GET", "POST"])
+def africa_get_user():
     if request.method == "POST":
         with open("data/africa/africa_users.json", "a") as user_list:
             user_list.write(request.form["africa_username"] + "\n")
         return redirect(request.form["africa_username"])
-    else:
-        return render_template("index.html")
-
-
-""" Routing for Africa Quiz Data """    
+    return render_template("africa_get_user.html", region="Asia")
+    
 
 @app.route('/<africa_username>', methods=["GET", "POST"])
 def africa_user(africa_username):
@@ -47,24 +48,6 @@ def africa_user(africa_username):
         else:
             with open("data/africa/africa_incorrect.json", "a") as answer:
                 answer.write(request.form["user_answer"] + "\n")
-                
-    
-    
-    """ following code found on stackoverflow """
-    """ hoping to use it to sort the "scores" json data file - may not be what I'm looking for"""
-                
-    def extract_time(json):
-        try:
-        # Also convert to int since update_time will be string.  When comparing
-        # strings, "10" is smaller than "2".
-            return int(json['page']['update_time'])
-        except KeyError:
-            return 0
-
-    # lines.sort() is more efficient than lines = lines.sorted()
-    """ lines.sort(key=extract_time, reverse=True) """
-        
-    
     
     return render_template("africa_quiz.html", region="Africa", africa_data=data)
 
@@ -90,7 +73,7 @@ def africa():
 
 """ Routing for Asia Quiz Data """  
     
-@app.route('/asia_get_user', methods=["GET", "POST"]    )
+@app.route('/asia_get_user', methods=["GET", "POST"])
 def asia_get_user():
     if request.method == "POST":
         with open("data/asia/asia_users.json", "a") as user_list:
@@ -112,6 +95,14 @@ def asia_user(asia_username):
     
     
 """ Routing for Australia Quiz Data """  
+
+@app.route('/australia_get_user', methods=["GET", "POST"])
+def australia_get_user():
+    if request.method == "POST":
+        with open("data/australia/australia_users.json", "a") as user_list:
+            user_list.write(request.form["australia_username"] + "\n")
+        return redirect(request.form["australia_username"])
+    return render_template("australia_get_user.html", region="Australia")
     
 @app.route('/australia_quiz')
 def australia():
@@ -122,7 +113,15 @@ def australia():
     
     
 
-""" Routing for Europe Quiz Data """  
+""" Routing for Europe Quiz Data """
+
+@app.route('/europe_get_user', methods=["GET", "POST"])
+def europe_get_user():
+    if request.method == "POST":
+        with open("data/europe/europe_users.json", "a") as user_list:
+            user_list.write(request.form["europe_username"] + "\n")
+        return redirect(request.form["europe_username"])
+    return render_template("europe_get_user.html", region="Europe")
 
 @app.route('/europe_quiz')
 def europe():
@@ -133,7 +132,16 @@ def europe():
     
 
 
-""" Routing for N America Quiz Data """  
+""" Routing for N America Quiz Data """
+
+@app.route('/n_america_get_user', methods=["GET", "POST"])
+def n_america_get_user():
+    if request.method == "POST":
+        with open("data/n_america/n_america_users.json", "a") as user_list:
+            user_list.write(request.form["n_america_username"] + "\n")
+        return redirect(request.form["n_america_username"])
+    return render_template("n_america_get_user.html", region="North America")
+    
 
 @app.route('/n_america_quiz')
 def n_america():
@@ -144,7 +152,16 @@ def n_america():
     
 
 
-""" Routing for S America Quiz Data """  
+""" Routing for S America Quiz Data """ 
+
+@app.route('/s_america_get_user', methods=["GET", "POST"])
+def s_america_get_user():
+    if request.method == "POST":
+        with open("data/s_america/s_america_users.json", "a") as user_list:
+            user_list.write(request.form["s_america_username"] + "\n")
+        return redirect(request.form["s_america_username"])
+    return render_template("s_america_get_user.html", region="South America")
+    
 
 @app.route('/s_america_quiz')
 def s_america():

@@ -99,8 +99,7 @@
           <div class="card-body">
           <h4 class="card-title">Africa</h4>
           <p class="card-text">Click The Below For Questions On African Cities</p>
-          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modal-1">Select Africa</button>
-          <a href={{ url_for('africa') }}><button type="button" class="btn btn-primary btn-md">Test</button></a>
+          <a href={{ url_for('africa_get_user') }}><button type="button" class="btn btn-primary btn-md">Select Africa</button></a>
           </div>
         </div>
         </div>
@@ -122,8 +121,7 @@
           <div class="card-body">
           <h4 class="card-title">Australia</h4>
           <p class="card-text">Click The Below For Questions On Australian Cities</p>
-          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modal-3">Select Australia</button>
-          <a href={{ url_for('australia') }}><button type="button" class="btn btn-primary btn-md">Test</button></a>
+          <a href={{ url_for('australia_get_user') }}><button type="button" class="btn btn-primary btn-md">Select Australia</button></a>
           </div>
         </div>
         </div>
@@ -138,8 +136,7 @@
           <div class="card-body">
           <h4 class="card-title">Europe</h4>
           <p class="card-text">Click The Below For Questions On European Cities</p>
-          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modal-4">Select Europe</button>
-          <a href={{ url_for('europe') }}><button type="button" class="btn btn-primary btn-md">Test</button></a>
+          <a href={{ url_for('europe_get_user') }}><button type="button" class="btn btn-primary btn-md">Select Europe</button></a>
           </div>
         </div>
         </div>
@@ -150,8 +147,7 @@
           <div class="card-body">
           <h4 class="card-title">North America</h4>
           <p class="card-text">Click The Below For Questions On North American Cities</p>
-          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modal-5">Select N America</button></a>
-          <a href={{ url_for('n_america') }}><button type="button" class="btn btn-primary btn-md">Test</button></a>
+          <a href={{ url_for('n_america_get_user') }}><button type="button" class="btn btn-primary btn-md">Select N America</button></a>
           </div>
         </div>
         </div>
@@ -162,8 +158,7 @@
           <div class="card-body">
           <h4 class="card-title">South America</h4>
           <p class="card-text">Click The Below For Questions On South American Cities</p>
-          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#Modal-6">Select S America</button>
-          <a href={{ url_for('s_america') }}><button type="button" class="btn btn-primary btn-md">Test</button></a>
+          <a href={{ url_for('s_america_get_user') }}><button type="button" class="btn btn-primary btn-md">Select S America</button></a>
           </div>
         </div>
         </div>
@@ -173,210 +168,6 @@
         <a href="https://www.vexels.com/vectors"> Vexels.com </a> | All above images designed by Vexels
     </section>
     
-    <!-- Portfolio Modals -->
-    
-    <!-- Modal-1-->
-    <div id="Modal-1" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">African Cities Quiz</h4>
-      </div>
-      <div class="modal-body">
-        <form method="POST">
-          <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input id="africa_username" type="text" class="form-control" name="africa_username" placeholder="Enter a Username">
-          </div></br>
-          <button name="redirect" class="btn btn-primary" value="Redirect">Start Quiz</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-    </div>
-    </div>
-    </div>
-    
-    <!-- Modal-2-->
-    <div id="Modal-2" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Asian Cities Quiz</h4>
-      </div>
-      <div class="modal-body">
-        <form method="POST">
-          <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-user"></i></span>
-          <input id="asia_username" type="text" class="form-control" name="asia_username" placeholder="Enter a Username">
-          </div></br>
-          <button name="redirect" class="btn btn-primary" value="Redirect">Start Quiz</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-    </div>
-    </div>
-    
-    <!-- Modal-3-->
-    <div id="Modal-3" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Australian Cities Quiz</h4>
-      </div>
-      <div class="modal-body">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-        magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-        quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-        ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-        dolor in hendrerit in vulputate velit esse molestie consequat,
-        vel illum dolore eu feugiat nulla facilisis at vero eros et
-        accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi.
-        Nam liber tempor cum soluta nobis eleifend option congue
-        nihil imperdiet doming id quod mazim placerat facer possim
-        assum. Typi non habent claritatem insitam; est usus legentis
-        in iis qui facit eorum claritatem. Investigationes
-        demonstraverunt lectores legere me lius quod ii legunt saepius.
-        Claritas est etiam processus dynamicus, qui sequitur mutationem
-        consuetudium lectorum. Mirum est notare quam littera gothica,
-        quam nunc putamus parum claram, anteposuerit litterarum formas
-        humanitatis per seacula quarta decima et quinta decima. Eodem
-        modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
-        in futurum.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-    </div>
-    </div>
-    
-    <!-- Modal-4-->
-    <div id="Modal-4" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">European Cities Quiz</h4>
-      </div>
-      <div class="modal-body">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-        magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-        quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-        ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-        dolor in hendrerit in vulputate velit esse molestie consequat,
-        vel illum dolore eu feugiat nulla facilisis at vero eros et
-        accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi.
-        Nam liber tempor cum soluta nobis eleifend option congue
-        nihil imperdiet doming id quod mazim placerat facer possim
-        assum. Typi non habent claritatem insitam; est usus legentis
-        in iis qui facit eorum claritatem. Investigationes
-        demonstraverunt lectores legere me lius quod ii legunt saepius.
-        Claritas est etiam processus dynamicus, qui sequitur mutationem
-        consuetudium lectorum. Mirum est notare quam littera gothica,
-        quam nunc putamus parum claram, anteposuerit litterarum formas
-        humanitatis per seacula quarta decima et quinta decima. Eodem
-        modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
-        in futurum.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-    </div>
-    </div>
-    
-    <!-- Modal-5-->
-    <div id="Modal-5" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">N American Cities Quiz</h4>
-      </div>
-      <div class="modal-body">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-        magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-        quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-        ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-        dolor in hendrerit in vulputate velit esse molestie consequat,
-        vel illum dolore eu feugiat nulla facilisis at vero eros et
-        accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi.
-        Nam liber tempor cum soluta nobis eleifend option congue
-        nihil imperdiet doming id quod mazim placerat facer possim
-        assum. Typi non habent claritatem insitam; est usus legentis
-        in iis qui facit eorum claritatem. Investigationes
-        demonstraverunt lectores legere me lius quod ii legunt saepius.
-        Claritas est etiam processus dynamicus, qui sequitur mutationem
-        consuetudium lectorum. Mirum est notare quam littera gothica,
-        quam nunc putamus parum claram, anteposuerit litterarum formas
-        humanitatis per seacula quarta decima et quinta decima. Eodem
-        modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
-        in futurum.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-    </div>
-    </div>
-    
-    <!-- Modal-6-->
-    <div id="Modal-6" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">S American Cities Quiz</h4>
-      </div>
-      <div class="modal-body">
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-        sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-        magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-        quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-        ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-        dolor in hendrerit in vulputate velit esse molestie consequat,
-        vel illum dolore eu feugiat nulla facilisis at vero eros et
-        accumsan et iusto odio dignissim qui blandit praesent luptatum
-        zzril delenit augue duis dolore te feugait nulla facilisi.
-        Nam liber tempor cum soluta nobis eleifend option congue
-        nihil imperdiet doming id quod mazim placerat facer possim
-        assum. Typi non habent claritatem insitam; est usus legentis
-        in iis qui facit eorum claritatem. Investigationes
-        demonstraverunt lectores legere me lius quod ii legunt saepius.
-        Claritas est etiam processus dynamicus, qui sequitur mutationem
-        consuetudium lectorum. Mirum est notare quam littera gothica,
-        quam nunc putamus parum claram, anteposuerit litterarum formas
-        humanitatis per seacula quarta decima et quinta decima. Eodem
-        modo typi, qui nunc nobis videntur parum clari, fiant sollemnes
-        in futurum.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-    </div>
-    </div>
     
     <!-- Leaderboard Section -->
     <section class="bg-dark text-white mb-0" id="leaderboard">

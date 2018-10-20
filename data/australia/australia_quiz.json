@@ -1,0 +1,28 @@
+[
+    {
+        "question": "What is the capital city of Kenya?",
+        "option1": "Lusaka",
+        "option2": "Kigali",
+        "option3": "Nairobi",
+        "answer": "Nairobi",
+        "image_source": "static/img/portfolio/africa/kenya.png"
+    },
+    
+    {
+        "question": "Which of the following is the city in Ehtiopia?",
+        "option1": "Addis Ababa",
+        "option2": "Johannesburg",
+        "option3": "Lusaka",
+        "answer": "Addis Ababa",
+        "image_source": "static/img/portfolio/africa/ethiopia.png"
+    },
+    
+    {
+        "question": "Which of the following is the largest city in South Africa?",
+        "option1": "Pretoria",
+        "option2": "Cape Town",
+        "answer": "Johannesburg",
+        "image_source": "static/img/portfolio/africa/south_africa.png"
+    }
+    
+]
