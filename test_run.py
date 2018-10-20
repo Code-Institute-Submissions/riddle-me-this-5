@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, url_for
 
 app = Flask(__name__)
 
@@ -29,10 +29,10 @@ def africa_user(africa_username):
     data = []
     with open("data/africa/africa_quiz.json", "r") as json_data:
         data = json.load(json_data)
-        index = 0
+        index = 2
+        score = 0
     
     if request.method == "POST":
-        score = 0
         user_answer = request.form["user_answer"]
         """attempting to set variable to the value of that from the json file """
         correct_answer = data['answer']
@@ -49,7 +49,7 @@ def africa_user(africa_username):
             with open("data/africa/africa_incorrect.json", "a") as answer:
                 answer.write(request.form["user_answer"] + "\n")
     
-    return render_template("africa_quiz.html", region="Africa", africa_data=data)
+    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index)
 
 
 
@@ -62,15 +62,24 @@ def asia_get_user():
         with open("data/asia/asia_users.json", "a") as user_list:
             user_list.write(request.form["asia_username"] + "\n")
         return redirect(request.form["asia_username"])
+        return redirect(url_for('asia_user'))
     return render_template("asia_get_user.html", region="Asia")
+ 
     
-    
-@app.route('/<asia_username>', methods=["GET", "POST"])
-def asia_user(asia_username):
+
+@app.route('/asia_quiz', methods=["GET", "POST"])
+def asia_quiz(asia_username):
     data = []
     with open("data/asia/asia_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("asia_quiz.html", region="Asia", asia_data=data)
+    return render_template("asia_quiz.html", region="Asia", asia_data=data)  
+
+
+    
+@app.route('/<asia_username>')
+def asia_user(asia_username):
+    return redirect(url_for('asia_quiz'))
+    
     
     
     

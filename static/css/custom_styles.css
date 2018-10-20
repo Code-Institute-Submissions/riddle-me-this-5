@@ -57,6 +57,11 @@ img{
   border-left: solid 4px #2C3E50;
 }
 
+#options {
+    color: #343A40;
+    padding:20px;
+}
+
 #skip{
     margin-left:20px;
 }

@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, url_for
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def index():
         return render_template("index.html")
 
 
-""" Routing for Africa Quiz Data """
+""" Routing for Africa Quiz Data (africa_qet_user.html & africa_quiz.html) """
 
 @app.route('/africa_get_user', methods=["GET", "POST"])
 def africa_get_user():
@@ -21,21 +21,23 @@ def africa_get_user():
         with open("data/africa/africa_users.json", "a") as user_list:
             user_list.write(request.form["africa_username"] + "\n")
         return redirect(request.form["africa_username"])
-    return render_template("africa_get_user.html", region="Africa")
+    return render_template("africa_get_user.html", region = "Africa")
     
 
 @app.route('/<africa_username>', methods=["GET", "POST"])
 def africa_user(africa_username):
     data = []
+    index = 0
+    score = 0
     with open("data/africa/africa_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("africa_quiz.html", region="Africa", africa_data=data)
+    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index)
 
 
 
 
-""" Routing for Asia Quiz Data """  
-    
+""" Routing for Asia Quiz Data (asia_qet_user.html & asia_quiz.html)""" 
+
 @app.route('/asia_get_user', methods=["GET", "POST"])
 def asia_get_user():
     if request.method == "POST":
@@ -48,12 +50,10 @@ def asia_get_user():
 @app.route('/<asia_username>', methods=["GET", "POST"])
 def asia_user(asia_username):
     data = []
+    score = 0
     with open("data/asia/asia_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("asia_quiz.html", region="Asia", asia_data=data)
-    
-    
-    
+    return render_template("asia_quiz.html", region="Asia", asia_data=data, username = asia_username, score = score)
     
     
     
@@ -70,9 +70,10 @@ def australia_get_user():
 @app.route('/<australia_username>', methods=["GET", "POST"])
 def australia_user(australia_username):
     data = []
+    score = 0
     with open("data/asutralia/australia_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("australia_quiz.html", region="Australia", australia_data=data)
+    return render_template("australia_quiz.html", region="Australia", australia_data=data, username = australia_username, score = score)
     
     
     
@@ -91,9 +92,10 @@ def europe_get_user():
 @app.route('/<europe_username>', methods=["GET", "POST"])
 def europe_user(europe_username):
     data = []
+    score = 0
     with open("data/europe/europe_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("europe_quiz.html", region="Europe", europe_data=data)
+    return render_template("europe_quiz.html", region="Europe", europe_data=data, username = europe_username, score = score)
     
     
     
@@ -114,9 +116,10 @@ def n_america_get_user():
 @app.route('/<n_america_username>', methods=["GET", "POST"])
 def n_america_user(n_america_username):
     data = []
+    score = 0
     with open("data/n_america/n_america_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("n_america_quiz.html", region="North America", n_america_data=data)
+    return render_template("n_america_quiz.html", region="North America", n_america_data=data, username = n_america_username, score = score)
     
     
     
@@ -137,9 +140,10 @@ def s_america_get_user():
 @app.route('/<s_america_username>', methods=["GET", "POST"])
 def s_america_user(s_america_username):
     data = []
+    score = 0
     with open("data/s_america/s_america_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("s_america_quiz.html", region="South America", s_america_data=data)
+    return render_template("s_america_quiz.html", region="South America", s_america_data=data, username = s_america_username, score = score)
 
 
 if __name__ == '__main__':
