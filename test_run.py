@@ -89,7 +89,16 @@ def africa():
 
 
 """ Routing for Asia Quiz Data """  
-
+    
+@app.route('/asia_get_user', methods=["GET", "POST"]    )
+def asia_get_user():
+    if request.method == "POST":
+        with open("data/asia/asia_users.json", "a") as user_list:
+            user_list.write(request.form["asia_username"] + "\n")
+        return redirect(request.form["asia_username"])
+    return render_template("asia_get_user.html", region="Asia")
+    
+    
 @app.route('/<asia_username>', methods=["GET", "POST"])
 def asia_user(asia_username):
     data = []
@@ -98,26 +107,30 @@ def asia_user(asia_username):
     return render_template("asia_quiz.html", region="Asia", asia_data=data)
     
     
-@app.route('/asia_quiz')
-def asia():
-    data=[]
-    with open("data/asia/asia_quiz.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template("asia_quiz.html", region="Asia", asia_data=data)
-
-
+    
+    
+    
+    
 """ Routing for Australia Quiz Data """  
     
 @app.route('/australia_quiz')
 def australia():
     return render_template("australia_quiz.html", region="Australia")
-
+    
+    
+    
+    
+    
 
 """ Routing for Europe Quiz Data """  
 
 @app.route('/europe_quiz')
 def europe():
     return render_template("europe_quiz.html", region="Europe")
+    
+    
+    
+    
 
 
 """ Routing for N America Quiz Data """  
@@ -125,6 +138,10 @@ def europe():
 @app.route('/n_america_quiz')
 def n_america():
     return render_template("n_america_quiz.html", region="North America")
+    
+    
+    
+    
 
 
 """ Routing for S America Quiz Data """  
