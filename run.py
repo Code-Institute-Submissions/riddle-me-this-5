@@ -33,6 +33,7 @@ def africa_user(africa_username):
 
 
 
+
 """ Routing for Asia Quiz Data """  
     
 @app.route('/asia_get_user', methods=["GET", "POST"])
@@ -66,10 +67,12 @@ def australia_get_user():
         return redirect(request.form["australia_username"])
     return render_template("australia_get_user.html", region="Australia")
     
-@app.route('/australia_quiz')
-def australia():
-    return render_template("australia_quiz.html", region="Australia")
-    
+@app.route('/<australia_username>', methods=["GET", "POST"])
+def australia_user(australia_username):
+    data = []
+    with open("data/asutralia/australia_quiz.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("australia_quiz.html", region="Australia", australia_data=data)
     
     
     
@@ -85,9 +88,12 @@ def europe_get_user():
         return redirect(request.form["europe_username"])
     return render_template("europe_get_user.html", region="Europe")
 
-@app.route('/europe_quiz')
-def europe():
-    return render_template("europe_quiz.html", region="Europe")
+@app.route('/<europe_username>', methods=["GET", "POST"])
+def europe_user(europe_username):
+    data = []
+    with open("data/europe/europe_quiz.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("europe_quiz.html", region="Europe", europe_data=data)
     
     
     
@@ -105,9 +111,14 @@ def n_america_get_user():
     return render_template("n_america_get_user.html", region="North America")
     
 
-@app.route('/n_america_quiz')
-def n_america():
-    return render_template("n_america_quiz.html", region="North America")
+@app.route('/<n_america_username>', methods=["GET", "POST"])
+def n_america_user(n_america_username):
+    data = []
+    with open("data/n_america/n_america_quiz.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("n_america_quiz.html", region="North America", n_america_data=data)
+    
+    
     
     
 
@@ -123,9 +134,12 @@ def s_america_get_user():
     return render_template("s_america_get_user.html", region="South America")
     
 
-@app.route('/s_america_quiz')
-def s_america():
-    return render_template("s_america_quiz.html", region="South America")
+@app.route('/<s_america_username>', methods=["GET", "POST"])
+def s_america_user(s_america_username):
+    data = []
+    with open("data/s_america/s_america_quiz.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("s_america_quiz.html", region="South America", s_america_data=data)
 
 
 if __name__ == '__main__':
