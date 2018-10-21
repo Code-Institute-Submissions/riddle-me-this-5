@@ -1,6 +1,6 @@
 [
     {
-        "question": "What is the capital city of Kenya?",
+        "question": "Which of the following is the capital city of Kenya?",
         "option1": "Lusaka",
         "option2": "Kigali",
         "option3": "Nairobi",
@@ -9,7 +9,7 @@
     },
     
     {
-        "question": "Which of the following is the city in Ehtiopia?",
+        "question": "Which of the following is the capital city of Ethiopia?",
         "option1": "Addis Ababa",
         "option2": "Johannesburg",
         "option3": "Lusaka",
@@ -18,7 +18,7 @@
     },
     
     {
-        "question": "Which of the following is the largest city in South Africa?",
+        "question": "Which of the following is the captil of South Africa?",
         "option1": "Pretoria",
         "option2": "Johannesburg",
         "option3": "Cape Town",
