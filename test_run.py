@@ -71,28 +71,29 @@ def africa_user(africa_username):
     
     incorrect_answers = get_africa_incorrect_answers()
     
-    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message = "is incorrect! The correct answer is", correct_answer = data[index]['answer'])
+    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, 
+    incorrect_answers = incorrect_answers, message = "is incorrect! The correct answer is", correct_answer = data[index]['answer'])
 
 
 
 """ 
-Routing for Asia Quiz Data 
+Routing for Asia Quiz Data
 """  
     
-@app.route('/australia_get_user', methods=["GET", "POST"])
-def australia_get_user():
+@app.route('/asia_get_user', methods=["GET", "POST"])
+def asia_get_user():
     if request.method == "POST":
-        with open("data/australia/australia_users.json", "a") as user_list:
-            user_list.write(request.form["australia_username"] + "\n")
-        return redirect(request.form["australia_username"])
-    return render_template("australia_get_user.html", region="Australia")
+        with open("data/asia/asia_users.json", "a") as user_list:
+            user_list.write(request.form["asia_username"] + "\n")
+        return redirect(request.form["asia_username"])
+    return render_template("asia_get_user.html", region="Asia")
     
-@app.route('/<australia_username>', methods=["GET", "POST"])
-def australia_user(australia_username):
+@app.route('/<asia_username>', methods=["GET", "POST"])
+def asia_user(asia_username):
     data = []
-    with open("data/asutralia/australia_quiz.json", "r") as json_data:
+    with open("data/asia/asia_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("australia_quiz.html", region="Australia", australia_data=data)
+    return render_template("asia_quiz.html", region="Asia", asia_data=data)
     
     
     
@@ -104,25 +105,25 @@ Routing for Australia Quiz Data
 """  
 
 @app.route('/australia_get_user', methods=["GET", "POST"])
-def asia_get_user():
+def australia_get_user():
     if request.method == "POST":
-        with open("data/asia/asia_users.json", "a") as user_list:
-            user_list.write(request.form["asia_username"] + "\n")
-        return redirect(request.form["asia_username"])
-    return render_template("asia_get_user.html", region="Asia")
+        with open("data/australia/australia_users.json", "a") as user_list:
+            user_list.write(request.form["australia_username"] + "\n")
+        return redirect(request.form["australia_username"])
+    return render_template("australia_get_user.html", region="Australia")
     
-@app.route('/<asi_username>', methods=["GET", "POST"])
-def asia_user(asia_username):
+@app.route('/<australia_username>', methods=["GET", "POST"])
+def australia_user(australia_username):
     data = []
-    with open("data/asia/asia_quiz.json", "r") as json_data:
+    with open("data/austarlia/australia_quiz.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("asia_quiz.html", region="Asia", australia_data=data)
+    return render_template("australia_quiz.html", region="Australia", australia_data=data)
     
 
     
 
 """ 
-Routing for Europe Quiz Data 
+Routing for Europe Quiz Data
 """
 
 @app.route('/europe_get_user', methods=["GET", "POST"])
