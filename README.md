@@ -103,4 +103,4 @@ The user then selects the button for the quiz of their choice, and this will ope
 
 ## Testing
 
-Mainly manual testing used throughout - for routing and checking if data is properly rendered in the correct template and format, "test_run.py" was used, whereby on clean functional code would then be transferred to the "run.py" file
+Mainly manual testing used throughout - for routing and checking if data is properly rendered in the correct template and format, "test_run.py" was used, whereby on satisfactory completion, the clean functional code would then be transferred to the "run.py" file

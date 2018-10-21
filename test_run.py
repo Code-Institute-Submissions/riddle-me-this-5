@@ -47,31 +47,31 @@ def africa_user(africa_username):
         data = json.load(json_data)
         # set index to first question in json data file
         index = 0
-        index = int(index)
         score = 0
         open("data/africa/africa_incorrect.json", "w")
         
     
-    if request.method == "POST":
-        user_answer = request.form["user_answer"]
-        # set variable to the value of that from the json file
-        correct_answer = data[index]['answer']
-        
-        if user_answer != correct_answer:
-            with open("data/africa/africa_incorrect.json", "a") as answer:
-                answer.write(request.form["user_answer"] + "\n")
-                index +=1
+        if request.method == "POST":
+            user_answer = request.form["user_answer"]
+            # set variable to the value of that from the json file
+            correct_answer = data[index]['answer']
             
-        else:
-            with open("data/africa/africa_correct.json", "a") as answer:
-                answer.write(request.form["user_answer"] + "\n")
-                score +=1
+            if user_answer == correct_answer:
                 index +=1
+                correct_answer = {"Answer": request.form["user_answer"], "Username": africa_username}
+                json.dump(correct_answer, open("data/africa/africa_correct.json","a"))
+                #with open("data/africa/africa_correct.json", "a") as answer:
+                #answer.write(request.form["user_answer"] + "\n")
+                score +=1
+            
+            else:
+                with open("data/africa/africa_incorrect.json", "a") as answer:
+                    answer.write(request.form["user_answer"] + "\n")
+            
     
     incorrect_answers = get_africa_incorrect_answers()
     
     return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message = "is incorrect! The correct answer is", correct_answer = data[index]['answer'])
-
 
 
 
