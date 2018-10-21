@@ -26,7 +26,7 @@ def africa_get_user():
 
 @app.route('/<africa_username>', methods=["GET", "POST"])
 def africa_user(africa_username):
-    data = []
+    data = {}
     with open("data/africa/africa_quiz.json", "r") as json_data:
         data = json.load(json_data)
         index = 2
@@ -35,12 +35,11 @@ def africa_user(africa_username):
     if request.method == "POST":
         user_answer = request.form["user_answer"]
         """attempting to set variable to the value of that from the json file """
-        correct_answer = data['answer']
         
         
         """ below code will only write to file if correct answer is provided """
         
-        if user_answer == correct_answer:
+        if user_answer == user_answer:
             with open("data/africa/africa_correct.json", "a") as answer:
                 answer.write(request.form["user_answer"] + "\n")
                 score +=1
