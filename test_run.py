@@ -13,8 +13,6 @@ Routing for Index.html
 def index():
         return render_template("index.html")
 
-index = 0
-score = 0
 
 """ 
 Africa Quiz Data 
@@ -49,12 +47,12 @@ def africa_user(africa_username):
         data = json.load(json_data)
         index = 0 # set index to first question in json data file
         score = 0 # set score to 0
+        correct_answer = data[index]['answer'] # sets variable to the value of 'answer' from the json file, for the specific index
         open("data/africa/africa_incorrect.json", "w") # creates blank data file to write incorret answers to
         
     
         if request.method == "POST":
             user_answer = request.form["user_answer"]
-            correct_answer = data[index]['answer'] # sets variable to the value of 'answer' from the json file, for the specific index
             
             if user_answer == correct_answer:
                 index +=1 # incremements the index to the next question if the answer is correct
@@ -67,12 +65,11 @@ def africa_user(africa_username):
             else:
                 with open("data/africa/africa_incorrect.json", "a") as answer:
                     answer.write(request.form["user_answer"] + "\n")
-                correct_answer = data[index]['answer']
                 index+=1
     
     incorrect_answers = get_africa_incorrect_answers()
     
-    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message1 = "is incorrect! The correct answer was", message2 = "Try The Next Question!", correct_answer = data[index]['answer'], previous_answer = data[index-1]['answer'])
+    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message1 = "is incorrect! The correct answer was", message2 = "Try The Next Question!", correct_answer = correct_answer, previous_answer = data[index-1]['answer'])
 
 
 """ 
