@@ -13,6 +13,8 @@ Routing for Index.html
 def index():
         return render_template("index.html")
 
+index = 0
+score = 0
 
 """ 
 Africa Quiz Data 
@@ -35,7 +37,7 @@ def africa_get_user():
     if request.method == "POST":
         with open("data/africa/africa_users.json", "a") as user_list:
             user_list.write(request.form["africa_username"] + "\n")
-            os.remove("data/africa/africa_incorrect.json")
+            os.remove("data/africa/africa_incorrect.json") # removes file and previous data
         return redirect(request.form["africa_username"])
     return render_template("africa_get_user.html", region="Africa")
     
@@ -45,41 +47,38 @@ def africa_user(africa_username):
     data = []
     with open("data/africa/africa_quiz.json", "r") as json_data:
         data = json.load(json_data)
-        # set index to first question in json data file
-        index = 0
-        score = 0
-        open("data/africa/africa_incorrect.json", "w")
+        index = 0 # set index to first question in json data file
+        score = 0 # set score to 0
+        open("data/africa/africa_incorrect.json", "w") # creates blank data file to write incorret answers to
         
     
         if request.method == "POST":
             user_answer = request.form["user_answer"]
-            # set variable to the value of that from the json file
-            correct_answer = data[index]['answer']
+            correct_answer = data[index]['answer'] # sets variable to the value of 'answer' from the json file, for the specific index
             
             if user_answer == correct_answer:
-                index +=1
-                correct_answer = {"Answer": request.form["user_answer"], "Username": africa_username}
-                json.dump(correct_answer, open("data/africa/africa_correct.json","a"))
+                index +=1 # incremements the index to the next question if the answer is correct
+                submit_correct = {"Answer": request.form["user_answer"], "Username": africa_username}
+                json.dump(submit_correct, open("data/africa/africa_correct.json","a"))
                 #with open("data/africa/africa_correct.json", "a") as answer:
                 #answer.write(request.form["user_answer"] + "\n")
-                score +=1
+                score +=1 # incremements the score x 1 if the answer is correct
             
             else:
                 with open("data/africa/africa_incorrect.json", "a") as answer:
                     answer.write(request.form["user_answer"] + "\n")
-            
+                correct_answer = data[index]['answer']
+                index+=1
     
     incorrect_answers = get_africa_incorrect_answers()
     
-    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, 
-    incorrect_answers = incorrect_answers, message = "is incorrect! The correct answer is", correct_answer = data[index]['answer'])
-
+    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message1 = "is incorrect! The correct answer was", message2 = "Try The Next Question!", correct_answer = data[index]['answer'], previous_answer = data[index-1]['answer'])
 
 
 """ 
 Routing for Asia Quiz Data
-"""  
-    
+"""
+
 @app.route('/asia_get_user', methods=["GET", "POST"])
 def asia_get_user():
     if request.method == "POST":
