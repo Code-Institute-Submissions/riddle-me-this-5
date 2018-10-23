@@ -1,9 +1,20 @@
 import os
 import json
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
+index = 0
+score = 0
+
+def increment_index():
+    global index
+    index+=1
+
+def increment_score():
+    global score
+    score+=1
 
 """ 
 Routing for Index.html 
@@ -39,14 +50,23 @@ def africa_get_user():
         return redirect(request.form["africa_username"])
     return render_template("africa_get_user.html", region="Africa")
     
+"""
+@app.before_request     #testing a way of incrementing the index when page loads after first question
+def before_request():
+    if index > 0:
+        data=[]
+        with open("data/africa/africa_quiz.json", "r") as json_data:
+            data = json.load(json_data)
+        correct_answer = data[index]['answer]']
+"""
 
 @app.route('/<africa_username>', methods=["GET", "POST"])
 def africa_user(africa_username):
     data = []
     with open("data/africa/africa_quiz.json", "r") as json_data:
         data = json.load(json_data)
-        index = 0 # set index to first question in json data file
-        score = 0 # set score to 0
+        #index = 0 # set index to first question in json data file
+        #score = 0 # set score to 0
         correct_answer = data[index]['answer'] # sets variable to the value of 'answer' from the json file, for the specific index
         open("data/africa/africa_incorrect.json", "w") # creates blank data file to write incorret answers to
         
@@ -55,21 +75,24 @@ def africa_user(africa_username):
             user_answer = request.form["user_answer"]
             
             if user_answer == correct_answer:
-                index +=1 # incremements the index to the next question if the answer is correct
+                # index+=1 # incremements the index to the next question if the answer is correct
+                increment_index() 
                 submit_correct = {"Answer": request.form["user_answer"], "Username": africa_username}
                 json.dump(submit_correct, open("data/africa/africa_correct.json","a"))
                 #with open("data/africa/africa_correct.json", "a") as answer:
                 #answer.write(request.form["user_answer"] + "\n")
-                score +=1 # incremements the score x 1 if the answer is correct
-            
+                #score +=1 # incremements the score x 1 if the answer is correct
+                increment_score()
+                
             else:
                 with open("data/africa/africa_incorrect.json", "a") as answer:
                     answer.write(request.form["user_answer"] + "\n")
-                index+=1
+                # index+=1
+                increment_index() 
     
     incorrect_answers = get_africa_incorrect_answers()
     
-    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message1 = "is incorrect! The correct answer was", message2 = "Try The Next Question!", correct_answer = correct_answer, previous_answer = data[index-1]['answer'])
+    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message1 = "is incorrect! The correct answer was", message2 = "Try The Next Question!", correct_answer = data[index]['answer'], previous_answer = data[index-1]['answer'])
 
 
 """ 

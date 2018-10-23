@@ -52,6 +52,7 @@ def africa_user(africa_username):
         
     
         if request.method == "POST":
+            index = int(request.form["index"])
             user_answer = request.form["user_answer"]
             
             if user_answer == correct_answer:
@@ -66,10 +67,23 @@ def africa_user(africa_username):
                 with open("data/africa/africa_incorrect.json", "a") as answer:
                     answer.write(request.form["user_answer"] + "\n")
                 index+=1
+                score = score
+        
+    if request.method == "POST":
+	    if index >= 3:
+		    return redirect("africa_end")
+		
     
     incorrect_answers = get_africa_incorrect_answers()
     
-    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message1 = "is incorrect! The correct answer was", message2 = "Try The Next Question!", correct_answer = correct_answer, previous_answer = data[index-1]['answer'])
+    return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message1 = "is incorrect! The correct answer was", message2 = "Try The Next Question!", correct_answer = data[index]['answer'], previous_answer = data[index-1]['answer'])
+
+
+
+
+@app.route('/africa_end')
+def end_of_game():
+        return render_template("africa_end.html")
 
 
 """ 

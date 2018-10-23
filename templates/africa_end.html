@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <section class="masthead bg-primary text-white text-center" id="quiz_header">
+      
+    <div class="container-fluid">
+        <div class="row">
+			  <div class="col-md-5 mb-5 mb-lg-0">
+    			<h2 class="text-center text-uppercase text-white">{{ region }} Quiz</h2>
+    			<hr class="star-light mb-5">
+    			<img class="card-img-top" src="static/img/portfolio/africa.png" alt="Africa">
+    			<h3 class="text-center text-uppercase text-white">End Of Quiz</h3></br>
+			  </div>
+		
+			<div class="col-md-7 mb-7 mb-lg-0">
+    			<h3 class="text-center text-uppercase text-white">Your Final Score Is:</h3></br></br>
+    			<h3 class="text-center text-uppercase text-white">{{ score }}??</h3></br></br>
+    			<h3 class="text-center text-uppercase text-white">Out of 10</h3>
+    			
+			  </div>
+			</div>
+    
+      </div>
+	</div>
+      
+    </section>
+    
+{% endblock %}
