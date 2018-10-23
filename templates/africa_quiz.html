@@ -22,7 +22,7 @@
     				2. {{ africa_data[index]["option2"] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     				3. {{ africa_data[index]["option3"] }}
     				</h4>
-    			</div>
+    		  </div>
     			<form method="POST">
     				<div class="input-group">
           			<input id="user_answer" type="text" class="form-control" name="user_answer" placeholder="Enter your answer here">
@@ -33,7 +33,8 @@
 				<h3>Your current score is <span style="color:#343A40" > {{ score }} </span> out of 10</h3>
 				<p style="color:#343A40;font-size:24px">
               	{% for incorrect in incorrect_answers %}
-               	{{ incorrect }} {{ message }} <span style="text-decoration:underline;font-weight:bold" > {{ correct_answer }} </span>
+               	{{ incorrect }} {{ message1 }} <span style="text-decoration:underline;font-weight:bold" > {{ previous_answer }} </span> </br>
+               	{{ message2 }}
                	{% endfor %}
                	</p>
 			</div>
