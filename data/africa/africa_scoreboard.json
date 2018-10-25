@@ -1,17 +1,1 @@
-[
-    {
-        "username": "Frank",
-        "score": "10",
-    },
-    
-    {
-       "username": "Frank",
-        "score": "6",
-    },
-    
-    {
-        "username": "Frank",
-        "score": "8",
-    }
-    
-]
+{"Score": "3", "Username": "Frank"}

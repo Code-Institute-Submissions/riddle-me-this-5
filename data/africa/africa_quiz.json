@@ -14,7 +14,7 @@
         "option2": "Johannesburg",
         "option3": "Lusaka",
         "answer": "Luanda",
-        "image_source": "static/img/portfolio/africa/angola.jpg"
+        "image_source": "static/img/portfolio/africa/angola.png"
     },
     
     {
@@ -27,7 +27,7 @@
     },
     
     
-     {
+    {
         "question": "Which of the following is the captil of Ethiopia?",
         "option1": "Pretoria",
         "option2": "Addis Ababa",

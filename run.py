@@ -27,6 +27,7 @@ def get_africa_incorrect_answers():
 			answers = [row for row in incorrect_answers]
 			return answers[-1:]
 			
+			
 
 """ Routing """
 
@@ -70,11 +71,12 @@ def africa_user(africa_username):
                     answer.write(request.form["user_answer"] + "\n")
                 index+=1
                 score = score
-                print("Correct")
         
-    if request.method == "POST":
-	    if index >= 5:
-		    return redirect("africa_end")
+        if request.method == "POST":
+	        if index >= 5:
+	            submit_score = {"Score": request.form["score"], "Username": africa_username}
+	            json.dump(submit_score, open("data/africa/africa_scoreboard.json","a"))
+	            return redirect("africa_end")
 		
     
     incorrect_answers = get_africa_incorrect_answers()
@@ -84,7 +86,7 @@ def africa_user(africa_username):
 
 @app.route('/africa_end')
 def africa_end():
-        return render_template("africa_end.html")
+    return render_template("africa_end.html")
 
 
 """ 
