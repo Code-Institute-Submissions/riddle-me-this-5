@@ -54,7 +54,7 @@ def africa_user(africa_username):
         if request.method == "POST":
             index = int(request.form["index"])
             score = int(request.form["score"])
-            #correct_answer = (request.form["correct_answer"])
+            correct_answer = (request.form["correct_answer"])
             user_answer = request.form["user_answer"]
             
             if user_answer == correct_answer:
@@ -70,9 +70,10 @@ def africa_user(africa_username):
                     answer.write(request.form["user_answer"] + "\n")
                 index+=1
                 score = score
+                print("Correct")
         
     if request.method == "POST":
-	    if index >= 3:
+	    if index >= 5:
 		    return redirect("africa_end")
 		
     

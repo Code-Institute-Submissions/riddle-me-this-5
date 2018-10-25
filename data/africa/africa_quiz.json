@@ -9,12 +9,12 @@
     },
     
     {
-        "question": "Which of the following is the capital city of Ethiopia?",
-        "option1": "Addis Ababa",
+        "question": "Which of the following is the capital city of Angola?",
+        "option1": "Luanda",
         "option2": "Johannesburg",
         "option3": "Lusaka",
-        "answer": "Addis Ababa",
-        "image_source": "static/img/portfolio/africa/ethiopia.png"
+        "answer": "Luanda",
+        "image_source": "static/img/portfolio/africa/angola.jpg"
     },
     
     {
@@ -24,6 +24,25 @@
         "option3": "Cape Town",
         "answer": "Johannesburg",
         "image_source": "static/img/portfolio/africa/south_africa.png"
+    },
+    
+    
+     {
+        "question": "Which of the following is the captil of Ethiopia?",
+        "option1": "Pretoria",
+        "option2": "Addis Ababa",
+        "option3": "Lusaka",
+        "answer": "Addis Ababa",
+        "image_source": "static/img/portfolio/africa/ethiopia.png"
+    },
+    
+    {
+        "question": "Which of the following is the captil of Zambia?",
+        "option1": "Pretoria",
+        "option2": "Johannesburg",
+        "option3": "Lusaka",
+        "answer": "Lusaka",
+        "image_source": "static/img/portfolio/africa/zambia.png"
     }
     
 ]
