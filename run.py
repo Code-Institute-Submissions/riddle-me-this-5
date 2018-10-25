@@ -11,7 +11,7 @@ Routing for Index.html
 
 @app.route('/')
 def index():
-        return render_template("index.html")
+    return render_template("index.html")
 
 
 """ 
@@ -53,6 +53,8 @@ def africa_user(africa_username):
     
         if request.method == "POST":
             index = int(request.form["index"])
+            score = int(request.form["score"])
+            #correct_answer = (request.form["correct_answer"])
             user_answer = request.form["user_answer"]
             
             if user_answer == correct_answer:
@@ -79,10 +81,8 @@ def africa_user(africa_username):
     return render_template("africa_quiz.html", region = "Africa", africa_data = data, username = africa_username, score = score, index = index, incorrect_answers = incorrect_answers, message1 = "is incorrect! The correct answer was", message2 = "Try The Next Question!", correct_answer = data[index]['answer'], previous_answer = data[index-1]['answer'])
 
 
-
-
 @app.route('/africa_end')
-def end_of_game():
+def africa_end():
         return render_template("africa_end.html")
 
 
@@ -206,3 +206,4 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
+            

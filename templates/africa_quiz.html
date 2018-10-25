@@ -27,7 +27,9 @@
     			<form method="POST">
     				<div class="input-group">
           			<input id="user_answer" type="text" class="form-control" name="user_answer" placeholder="Enter your answer here">
-          			<input type="text" name="index" id="index" value={{index}}>
+          			<input type="hidden" name="index" id="index" value={{ index }}>
+          			<input type="hidden" name="score" id="score" value={{ score }}>
+          			<input type="hidden" name="correct_answer" id="correct_answer" value={{ correct_answer }}>
           			</div></br>
           			<button name="redirect" class="btn btn-info" value="Redirect">Submit</button>
 			    </form></br>
