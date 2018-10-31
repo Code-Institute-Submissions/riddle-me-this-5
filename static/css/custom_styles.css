@@ -80,3 +80,19 @@ ol {
     margin-right: 0;
     padding-left: 40px;
 }
+
+ul {
+    margin-top: 5px;
+    text-align: center;
+    color: black;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr {
+    background-color: white;
+    
+}
