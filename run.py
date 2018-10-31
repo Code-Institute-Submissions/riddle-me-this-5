@@ -23,7 +23,7 @@ Get LAST incorrect answers
 """
 def get_africa_incorrect_answer():
 	answers = []
-	with open("data/africa/africa_incorrect.json", "r") as incorrect_answer:
+	with open("data/africa/africa_incorrect.txt", "r") as incorrect_answer:
 			answers = [row for row in incorrect_answer]
 			return answers[-1:]
 
@@ -32,7 +32,7 @@ Get ALL incorrect answers
 """
 def get_africa_incorrect_list():
 	list_incorrect = []
-	with open("data/africa/africa_incorrect.json", "r") as list_incorrect:
+	with open("data/africa/africa_incorrect.txt", "r") as list_incorrect:
 			list_incorrect = [row for row in list_incorrect]
 			return list_incorrect[-10:]
 
@@ -41,7 +41,7 @@ Get ALL correct answers
 """
 def get_africa_correct_list():
 	list_correct = []
-	with open("data/africa/africa_correct.json", "r") as list_correct:
+	with open("data/africa/africa_correct.txt", "r") as list_correct:
 			list_correct = [row for row in list_correct]
 			return list_correct[-10:]
 			
@@ -51,9 +51,9 @@ Get final score
 
 def get_score():
 	final_score = []
-	with open("data/africa/africa_final_score.json", "r") as final_score:
+	with open("data/africa/africa_final_score.txt", "r") as final_score:
 			final_score = [row for row in final_score]
-			return final_score[-1:]
+			return final_score
 			
 """ 
 Get Username for final score
@@ -61,9 +61,9 @@ Get Username for final score
 
 def get_username():
 	final_username = []
-	with open("data/africa/africa_users.json", "r") as final_username:
+	with open("data/africa/africa_users.txt", "r") as final_username:
 			final_username = [row for row in final_username]
-			return final_username[-1:]
+			return final_username
 			
 
 """ Routing """
@@ -71,10 +71,12 @@ def get_username():
 @app.route('/africa_get_user', methods=["GET", "POST"])
 def africa_get_user():
     if request.method == "POST":
-        with open("data/africa/africa_users.json", "a") as user_list:
+        os.remove("data/africa/africa_users.txt") # removes file and previous data
+        with open("data/africa/africa_users.txt", "a") as user_list:
             user_list.write(request.form["africa_username"] + "\n")
-            os.remove("data/africa/africa_incorrect.json") # removes file and previous data
-            os.remove("data/africa/africa_correct.json") # removes file and previous data
+            os.remove("data/africa/africa_incorrect.txt") # removes file and previous data
+            os.remove("data/africa/africa_correct.txt") # removes file and previous data
+            os.remove("data/africa/africa_final_score.txt") # removes file and previous data
         return redirect(request.form["africa_username"])
     return render_template("africa_get_user.html", region="Africa")
     
@@ -87,8 +89,9 @@ def africa_user(africa_username):
         index = 0 # set index to first question in json data file
         score = 0 # set score to 0
         correct_answer = data[index]['answer'] # sets variable to the value of 'answer' from the json file, for the specific index
-        open("data/africa/africa_incorrect.json", "a") # creates blank data file to write incorret answers to
-        open("data/africa/africa_correct.json", "a") # creates blank data file to write incorret answers to
+        open("data/africa/africa_incorrect.txt", "a") # creates blank data file to write incorret answers to
+        open("data/africa/africa_correct.txt", "a") # creates blank data file to write incorret answers to
+        open("data/africa/africa_final_score.txt", "a") # creates blank data file to write incorret answers to
         
     
         if request.method == "POST":
@@ -99,12 +102,12 @@ def africa_user(africa_username):
             
             if user_answer == correct_answer:
                 index +=1 # incremements the index to the next question if the answer is correct
-                with open("data/africa/africa_correct.json", "a") as answer:
+                with open("data/africa/africa_correct.txt", "a") as answer:
                     answer.write(request.form["user_answer"] + "\n")
                 score +=1 # incremements the score x 1 if the answer is correct
             
             else:
-                with open("data/africa/africa_incorrect.json", "a") as answer:
+                with open("data/africa/africa_incorrect.txt", "a") as answer:
                     answer.write(request.form["user_answer"].title() + "\n")
                 index+=1
                 score = score
@@ -114,7 +117,7 @@ def africa_user(africa_username):
 	        if index >= 5:
 	            submit_score = {"Score": request.form["score"], "Username": africa_username}
 	            json.dump(submit_score, open("data/africa/africa_scoreboard.json","a"))
-	            with open("data/africa/africa_final_score.json", "a") as answer:
+	            with open("data/africa/africa_final_score.txt", "a") as answer:
                         answer.write(request.form["score"] + "\n")
 	            return redirect("africa_end")
 		
