@@ -18,7 +18,7 @@
     },
     
     {
-        "question": "Which of the following is the captil of South Africa?",
+        "question": "Which of the following is the capital of South Africa?",
         "option1": "Pretoria",
         "option2": "Johannesburg",
         "option3": "Cape Town",
@@ -28,16 +28,16 @@
     
     
     {
-        "question": "Which of the following is the captil of Ethiopia?",
+        "question": "Which of the following is the capital of Liberia?",
         "option1": "Pretoria",
         "option2": "Addis Ababa",
-        "option3": "Lusaka",
-        "answer": "Addis Ababa",
-        "image_source": "static/img/portfolio/africa/ethiopia.png"
+        "option3": "Monrovia",
+        "answer": "Monrovia",
+        "image_source": "static/img/portfolio/africa/liberia.png"
     },
     
     {
-        "question": "Which of the following is the captil of Zambia?",
+        "question": "Which of the following is the capitalil of Zambia?",
         "option1": "Pretoria",
         "option2": "Johannesburg",
         "option3": "Lusaka",

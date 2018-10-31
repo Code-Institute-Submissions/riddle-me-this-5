@@ -36,7 +36,7 @@
 			    <!-- <button name="user_answer" class="btn btn-info" value="user_answer" id="user_answer">Submit</button><button type="button" class="btn btn-info" id="skip">Skip</button> n-->
 				<h3>Your current score is <span style="color:#343A40" > {{ score }} </span> out of 10</h3>
 				<p style="color:#343A40;font-size:24px">
-              	{% for incorrect in incorrect_answers %}
+              	{% for incorrect in incorrect_answer %}
                	{{ incorrect }} {{ message1 }} <span style="text-decoration:underline;font-weight:bold" > {{ previous_answer }} </span> </br>
                	{{ message2 }}
                	{% endfor %}

@@ -19,15 +19,32 @@ Africa Quiz Data
 """
 
 """ 
-Get all incorrect answers
+Get LAST incorrect answers
 """
 def get_africa_incorrect_answers():
 	answers = []
 	with open("data/africa/africa_incorrect.json", "r") as incorrect_answers:
 			answers = [row for row in incorrect_answers]
 			return answers[-1:]
+
+""" 
+Get ALL incorrect answers
+"""
+def get_africa_incorrect_list():
+	list_incorrect = []
+	with open("data/africa/africa_incorrect.json", "r") as list_incorrect:
+			list_incorrect = [row for row in list_incorrect]
+			return list_incorrect
 			
-			
+""" 
+Get all final score
+"""
+
+def get_score():
+	final_score = []
+	with open("data/africa/africa_final_score.json", "r") as final_score:
+			final_score = [row for row in final_score]
+			return final_score[-1:]			
 
 """ Routing """
 
@@ -56,7 +73,7 @@ def africa_user(africa_username):
             index = int(request.form["index"])
             score = int(request.form["score"])
             correct_answer = (request.form["correct_answer"])
-            user_answer = request.form["user_answer"]
+            user_answer = request.form["user_answer"].title()
             
             if user_answer == correct_answer:
                 index +=1 # incremements the index to the next question if the answer is correct
@@ -68,14 +85,17 @@ def africa_user(africa_username):
             
             else:
                 with open("data/africa/africa_incorrect.json", "a") as answer:
-                    answer.write(request.form["user_answer"] + "\n")
+                    answer.write(request.form["user_answer"].title() + "\n")
                 index+=1
                 score = score
+                
         
-        if request.method == "POST":
+        if request.method == "POST":  #code for finished quiz once all questions have been asked and enter final score in scoreboard
 	        if index >= 5:
 	            submit_score = {"Score": request.form["score"], "Username": africa_username}
 	            json.dump(submit_score, open("data/africa/africa_scoreboard.json","a"))
+	            with open("data/africa/africa_final_score.json", "a") as answer:
+                        answer.write(request.form["score"] + "\n")
 	            return redirect("africa_end")
 		
     
@@ -86,7 +106,9 @@ def africa_user(africa_username):
 
 @app.route('/africa_end')
 def africa_end():
-    return render_template("africa_end.html")
+    final_score = get_score()
+    incorrect_list = get_africa_incorrect_list()
+    return render_template("africa_end.html", final_score = final_score, incorrect_list = incorrect_list)
 
 
 """ 
