@@ -37,7 +37,7 @@ def get_africa_incorrect_list():
 			return list_incorrect[-10:]
 
 """ 
-Get ALL incorrect answers
+Get ALL correct answers
 """
 def get_africa_correct_list():
 	list_correct = []
@@ -53,7 +53,18 @@ def get_score():
 	final_score = []
 	with open("data/africa/africa_final_score.json", "r") as final_score:
 			final_score = [row for row in final_score]
-			return final_score[-1:]			
+			return final_score[-1:]
+			
+""" 
+Get Username for final score
+"""
+
+def get_username():
+	final_username = []
+	with open("data/africa/africa_users.json", "r") as final_username:
+			final_username = [row for row in final_username]
+			return final_username[-1:]
+			
 
 """ Routing """
 
@@ -118,7 +129,8 @@ def africa_end():
     final_score = get_score()
     incorrect_list = get_africa_incorrect_list()
     correct_list = get_africa_correct_list()
-    return render_template("africa_end.html", final_score = final_score, incorrect_list = incorrect_list, correct_list = correct_list)
+    username = get_username()
+    return render_template("africa_end.html", final_score = final_score, incorrect_list = incorrect_list, correct_list = correct_list, region = "Africa", username = username)
 
 
 """ 
