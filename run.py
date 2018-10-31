@@ -21,9 +21,9 @@ Africa Quiz Data
 """ 
 Get LAST incorrect answers
 """
-def get_africa_incorrect_answer():
+def get_africa_incorrect_answer(): #work around for displaying Incorrect Message to User, notifying them of correct answer
 	answers = []
-	with open("data/africa/africa_incorrect.txt", "r") as incorrect_answer:
+	with open("data/africa/africa_last_incorrect.txt", "r") as incorrect_answer:
 			answers = [row for row in incorrect_answer]
 			return answers[-1:]
 
@@ -75,6 +75,7 @@ def africa_get_user():
         with open("data/africa/africa_users.txt", "a") as user_list:
             user_list.write(request.form["africa_username"] + "\n")
             os.remove("data/africa/africa_incorrect.txt") # removes file and previous data
+            os.remove("data/africa/africa_last_incorrect.txt") # removes file and previous data
             os.remove("data/africa/africa_correct.txt") # removes file and previous data
             os.remove("data/africa/africa_final_score.txt") # removes file and previous data
         return redirect(request.form["africa_username"])
@@ -90,6 +91,7 @@ def africa_user(africa_username):
         score = 0 # set score to 0
         correct_answer = data[index]['answer'] # sets variable to the value of 'answer' from the json file, for the specific index
         open("data/africa/africa_incorrect.txt", "a") # creates blank data file to write incorret answers to
+        open("data/africa/africa_last_incorrect.txt", "w") # creates blank data file to write incorret answers to
         open("data/africa/africa_correct.txt", "a") # creates blank data file to write incorret answers to
         open("data/africa/africa_final_score.txt", "a") # creates blank data file to write incorret answers to
         
@@ -107,6 +109,8 @@ def africa_user(africa_username):
                 score +=1 # incremements the score x 1 if the answer is correct
             
             else:
+                with open("data/africa/africa_last_incorrect.txt", "w") as answer:
+                    answer.write(request.form["user_answer"].title() + "\n") #work around for displaying Incorrect Message to User, notifying them of correct answer
                 with open("data/africa/africa_incorrect.txt", "a") as answer:
                     answer.write(request.form["user_answer"].title() + "\n")
                 index+=1
