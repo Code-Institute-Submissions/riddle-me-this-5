@@ -126,7 +126,7 @@ def africa_user(africa_username):
                 score = score
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
-                if index >= 5:
+                if index >= 10:
                     submit_score = {"Score": request.form["score"], "Username": africa_username}
                     json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
                     with open("data/africa/africa_final_score.txt", "a") as answer:
@@ -135,7 +135,7 @@ def africa_user(africa_username):
 
     incorrect_answer = get_africa_incorrect_answer()
 
-    return render_template("africa_quiz.html", region="Africa", africa_data=data, username=africa_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_anwser=data[index-1]['answer'])
+    return render_template("africa_quiz.html", region="Africa", africa_data=data, username=africa_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_answer=data[index-1]['answer'])
 
 
 @app.route('/africa_end')
@@ -258,7 +258,7 @@ def asia_user(asia_username):
                 score = score
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
-                if index >= 5:
+                if index >= 9:
                     submit_score = {"Score": request.form["score"], "Username": asia_username}
                     json.dump(submit_score, open("data/asia/asia_scoreboard.json", "a"))
                     with open("data/asia/asia_final_score.txt", "a") as answer:
@@ -267,7 +267,7 @@ def asia_user(asia_username):
 
     incorrect_answer = get_asia_incorrect_answer()
 
-    return render_template("asia_quiz.html", region="Asia", asia_data=data, username=asia_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_anwser=data[index-1]['answer'])
+    return render_template("asia_quiz.html", region="Asia", asia_data=data, username=asia_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_answer=data[index-1]['answer'])
 
 
 @app.route('/asia_end')
@@ -390,7 +390,7 @@ def australia_user(australia_username):
                 score = score
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
-                if index >= 5:
+                if index >= 10:
                     submit_score = {"Score": request.form["score"], "Username": australia_username}
                     json.dump(submit_score, open("data/australia/australia_scoreboard.json", "a"))
                     with open("data/australia/australia_final_score.txt", "a") as answer:
@@ -399,7 +399,7 @@ def australia_user(australia_username):
 
     incorrect_answer = get_australia_incorrect_answer()
 
-    return render_template("australia_quiz.html", region="Australia", australia_data=data, username=australia_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_anwser=data[index-1]['answer'])
+    return render_template("australia_quiz.html", region="Australia", australia_data=data, username=australia_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_answer=data[index-1]['answer'])
 
 
 @app.route('/australia_end')
@@ -522,7 +522,7 @@ def europe_user(europe_username):
                 score = score
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
-                if index >= 5:
+                if index >= 10:
                     submit_score = {"Score": request.form["score"], "Username": europe_username}
                     json.dump(submit_score, open("data/europe/europe_scoreboard.json", "a"))
                     with open("data/europe/europe_final_score.txt", "a") as answer:
@@ -531,7 +531,7 @@ def europe_user(europe_username):
 
     incorrect_answer = get_europe_incorrect_answer()
 
-    return render_template("europe_quiz.html", region="Europe", europe_data=data, username=europe_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_anwser=data[index-1]['answer'])
+    return render_template("europe_quiz.html", region="Europe", europe_data=data, username=europe_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_answer=data[index-1]['answer'])
 
 
 @app.route('/europe_end')
@@ -654,7 +654,7 @@ def n_america_user(n_america_username):
                 score = score
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
-                if index >= 5:
+                if index >= 10:
                     submit_score = {"Score": request.form["score"], "Username": n_america_username}
                     json.dump(submit_score, open("data/n_america/n_america_scoreboard.json", "a"))
                     with open("data/n_america/n_america_final_score.txt", "a") as answer:
@@ -663,7 +663,7 @@ def n_america_user(n_america_username):
 
     incorrect_answer = get_n_america_incorrect_answer()
 
-    return render_template("n_america_quiz.html", region="N_america", n_america_data=data, username=n_america_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_anwser=data[index-1]['answer'])
+    return render_template("n_america_quiz.html", region="N_america", n_america_data=data, username=n_america_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_answer=data[index-1]['answer'])
 
 
 @app.route('/n_america_end')
@@ -786,7 +786,7 @@ def s_america_user(s_america_username):
                 score = score
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
-                if index >= 5:
+                if index >= 10:
                     submit_score = {"Score": request.form["score"], "Username": s_america_username}
                     json.dump(submit_score, open("data/s_america/s_america_scoreboard.json", "a"))
                     with open("data/s_america/s_america_final_score.txt", "a") as answer:
@@ -795,7 +795,7 @@ def s_america_user(s_america_username):
 
     incorrect_answer = get_s_america_incorrect_answer()
 
-    return render_template("s_america_quiz.html", region="S_america", s_america_data=data, username=s_america_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_anwser=data[index-1]['answer'])
+    return render_template("s_america_quiz.html", region="S_america", s_america_data=data, username=s_america_username, score=score, index=index, incorrect_answer=incorrect_answer, message1="is incorrect! The correct answer was", message2="Try The Next Question!", correct_answer=data[index]['answer'], previous_answer=data[index-1]['answer'])
 
 
 @app.route('/s_america_end')

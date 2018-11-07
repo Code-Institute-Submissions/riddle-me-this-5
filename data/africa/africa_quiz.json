@@ -18,7 +18,7 @@
     },
     
     {
-        "question": "Which of the following is the capital of South Africa?",
+        "question": "Which of the following is the capital city of South Africa?",
         "option1": "Pretoria",
         "option2": "Johannesburg",
         "option3": "Cape Town",
@@ -28,7 +28,7 @@
     
     
     {
-        "question": "Which of the following is the capital of Liberia?",
+        "question": "Which of the following is the capital city of Liberia?",
         "option1": "Pretoria",
         "option2": "Addis Ababa",
         "option3": "Monrovia",
@@ -37,12 +37,57 @@
     },
     
     {
-        "question": "Which of the following is the capitalil of Zambia?",
+        "question": "Which of the following is the capital city of Zambia?",
         "option1": "Pretoria",
         "option2": "Johannesburg",
         "option3": "Lusaka",
         "answer": "Lusaka",
         "image_source": "static/img/portfolio/africa/zambia.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital city of Sierra Leone?",
+        "option1": "Freetown",
+        "option2": "Kigali",
+        "option3": "Juba",
+        "answer": "Freetown",
+        "image_source": "static/img/portfolio/africa/s_leone.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital city of Morocco?",
+        "option1": "Rabat",
+        "option2": "Casablanca",
+        "option3": "Djibouti",
+        "answer": "Rabat",
+        "image_source": "static/img/portfolio/africa/morocco.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital city of Eritrea?",
+        "option1": "Juba",
+        "option2": "Djibouti",
+        "option3": "Asmara",
+        "answer": "Asmara",
+        "image_source": "static/img/portfolio/africa/eritrea.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital city of Burundi?",
+        "option1": "Pretoria",
+        "option2": "Bujumbura",
+        "option3": "Kampala",
+        "answer": "Bujumbura",
+        "image_source": "static/img/portfolio/africa/burundi.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital city of Zimbabwe?",
+        "option1": "Juba",
+        "option2": "Harare",
+        "option3": "Lilongwe",
+        "answer": "Harare",
+        "image_source": "static/img/portfolio/africa/zimbabwe.png"
     }
     
 ]
