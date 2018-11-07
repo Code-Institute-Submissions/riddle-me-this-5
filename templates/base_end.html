@@ -31,7 +31,7 @@
 
   <body id="page-top">
 
-  <!-- Navigation -->
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href={{ url_for('index') }}>World Cities Quiz</a>
@@ -42,38 +42,33 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href={{ url_for('index') }}>Back To Quiz Selection</a>
- 			</li>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#leaderboard">{{ region }} Leaderboard</a>
+            </li>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#quiz_header">Final Score</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href={{ url_for('index') }}>Home Page</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
+    
+    <!-- Page Content Section -->
+    {% block content%}
+    {% endblock %}
 
-    <section class="masthead bg-primary text-white text-center" id="quiz_header">
-    
-      <div class="container-fluid">
-        <div class="row">
-			  <div class="col-md-7 mb-7 mb-lg-0">
-    			<h2 class="text-center text-uppercase text-white">{{ region }} Quiz</h2>
-    			<hr class="star-light mb-5">
-    			<img class="card-img-top" src="static/img/portfolio/africa.png" alt="Africa">
-			  </div>
-			  
-			  <div class="col-md-5 mb-5 mb-lg-0">
-			  	<h3>To Begin The Quiz Please Enter Your Name:</h3>
-    			<form method="POST">
-    				<div class="input-group">
-          			<input id="africa_username" type="text" class="form-control" name="africa_username" placeholder="Enter your name here" autofocus>
-          			</div></br>
-          			<button name="redirect" class="btn btn-info" onclick="location.href('africa_quiz.html');" value="Redirect">Begin </button>
-			    </form></br>
-			  </div>
-			  
-		</div>
-	  </div>
-      
+    <!-- Leaderboard Section -->
+    <section class="bg-dark text-white mb-0" id="leaderboard">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Leaderboard</h2>
+        <hr class="star-light mb-5">
+
+      </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer text-center">
       <div class="container">
