@@ -2,11 +2,52 @@
 {% block content %}
 
     <section class="masthead bg-primary text-white text-center" id="quiz_header">
-      <div class="container">
-        <h2 class="text-center text-uppercase text-white">{{ region }} Quiz</h2>
-        <hr class="star-light mb-5">
-        <h3 class="text-center text-uppercase text-white">How many capitals do you know in the countries of {{ region }}</h3></br>
+      
+    <div class="container-fluid">
+        <div class="row">
+			  <div class="col-md-5 mb-5 mb-lg-0">
+    			<h2 class="text-center text-uppercase text-white">{{ region }} Quiz</h2>
+    			<hr class="star-light mb-5">
+    			<img class="card-img-top" src="static/img/portfolio/africa.png" alt="Africa">
+    			<h3> Welcome <span style="text-decoration:underline" > {{ username }} </span> </h3></br>
+    			<h3 class="text-center text-uppercase text-white">How many capitals do you know in the states of {{ region }}</h3></br>
+			  </div>
+		
+			 <div class="col-md-7 mb-7 mb-lg-0" id="right_column">
+    			<h3>Q{{ index+1 }}.&nbsp;{{ n_america_data[index]["question"] }}</h3>
+    			<!-- <span style="color:orange" > {{ correct_answer }} </span> -->
+    			<img src={{ n_america_data[index]["image_source"] }} alt="placeholder flag">
+    			<div>
+    				<h4 id="options">
+    				1. {{ n_america_data[index]["option1"] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    				2. {{ n_america_data[index]["option2"] }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    				3. {{ n_america_data[index]["option3"] }}
+    				</h4>
+    		  </div>
+    			<form method="POST">
+    				<div class="input-group">
+          			<input id="user_answer" type="text" class="form-control" name="user_answer" placeholder="Enter your answer here" autofocus>
+          			<input type="hidden" name="index" id="index" value={{ index }}>
+          			<input type="hidden" name="score" id="score" value={{ score }}>
+          			<input type="hidden" name="correct_answer" id="correct_answer" value={{ correct_answer }}>
+          			</div></br>
+          			<button name="redirect" class="btn btn-info" value="Redirect">Submit</button>
+			    </form></br>
+			    <!-- <button name="user_answer" class="btn btn-info" value="user_answer" id="user_answer">Submit</button><button type="button" class="btn btn-info" id="skip">Skip</button> n-->
+				<h3>Your current score is <span style="color:#343A40" > {{ score }} </span> out of 10</h3>
+				<p style="color:#343A40;font-size:24px">
+				{% if user_answer != correct_answer %} <!-- not sure how if statement can work here -->
+              	{% for incorrect in incorrect_answer %}
+               	{{ incorrect }} {{ message1 }} <span style="text-decoration:underline;font-weight:bold" > {{ previous_answer }} </span> </br>
+               	{{ message2 }}
+               	{% endfor %}
+               	{% endif %}
+               	</p>
+			</div>
+    
       </div>
+	</div>
+      
     </section>
     
 {% endblock %}

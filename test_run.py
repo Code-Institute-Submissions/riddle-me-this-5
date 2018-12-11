@@ -634,11 +634,11 @@ def n_america_get_user():
             os.remove("data/n_america/n_america_last_incorrect.txt")  # removes file and previous data
             os.remove("data/n_america/n_america_correct.txt")  # removes file and previous data
             os.remove("data/n_america/n_america_final_score.txt")  # removes file and previous data
-        return redirect(request.form["n_america_username"])
+        return redirect(url_for('n_america_user', n_america_username = request.form["n_america_username"]))
     return render_template("n_america_get_user.html", region="N_america")
 
 
-@app.route('/<n_america_username>', methods=["GET", "POST"])
+@app.route('/n_america_username<n_america_username>', methods=["GET", "POST"])
 def n_america_user(n_america_username):
     data = []
     with open("data/n_america/n_america_quiz.json", "r") as json_data:
@@ -766,11 +766,11 @@ def s_america_get_user():
             os.remove("data/s_america/s_america_last_incorrect.txt")  # removes file and previous data
             os.remove("data/s_america/s_america_correct.txt")  # removes file and previous data
             os.remove("data/s_america/s_america_final_score.txt")  # removes file and previous data
-        return redirect(request.form["s_america_username"])
+        return redirect(url_for('s_america_user', s_america_username = request.form["s_america_username"]))
     return render_template("s_america_get_user.html", region="S_america")
 
 
-@app.route('/<s_america_username>', methods=["GET", "POST"])
+@app.route('/s_america_username<s_america_username>', methods=["GET", "POST"])
 def s_america_user(s_america_username):
     data = []
     with open("data/s_america/s_america_quiz.json", "r") as json_data:
