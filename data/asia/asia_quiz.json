@@ -1,28 +1,92 @@
 [
     {
-        "question": "What is the capital city of Maylasia?",
+        "question": "What is the capital city of Philippines?",
         "option1": "New Dheli",
-        "option2": "Kuala Lumpur",
+        "option2": "Manila",
         "option3": "Jakarta",
-        "answer": "Kuala Lumpur",
-        "image_source": "static/img/portfolio/asia/malaysia.png"
-    },
-    
-    {
-        "question": "Which of the following is the capital city of the Philippines?",
-        "option1": "Jakarta",
-        "option2": "Bangkok",
-        "option3": "Manila",
         "answer": "Manila",
         "image_source": "static/img/portfolio/asia/philippines.png"
     },
     
     {
-        "question": "Which of the following is the capital of Cambodia?",
+        "question": "Which of the following is the capital city of Indonesia?",
+        "option1": "Jakarta",
+        "option2": "Bangkok",
+        "option3": "Kuala Lumpur",
+        "answer": "Jakarta",
+        "image_source": "static/img/portfolio/asia/indonesia.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital of Vietnam?",
         "option1": "Hanoi",
-        "option2": "Phom Phen",
+        "option2": "Phnom Pehn",
+        "option3": "Kabul",
+        "answer": "Hanoi",
+        "image_source": "static/img/portfolio/asia/vietnam.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital of Bangladesh?",
+        "option1": "Dhaka",
+        "option2": "Kuala Lumpur",
+        "option3": "Phnom Pehn",
+        "answer": "Dhaka",
+        "image_source": "static/img/portfolio/asia/bangladesh.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital of Afghanistan?",
+        "option1": "New Dheli",
+        "option2": "Baghdad",
+        "option3": "Kabul",
         "answer": "Kabul",
-        "image_source": "static/img/portfolio/asia/cambodia.png"
+        "image_source": "static/img/portfolio/asia/afghanistan.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital of Japan?",
+        "option1": "Tokyo",
+        "option2": "Baghdad",
+        "option3": "Ulaanbaatar",
+        "answer": "Tokyo",
+        "image_source": "static/img/portfolio/asia/japan.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital of Iran?",
+        "option1": "Ulaanbaatar",
+        "option2": "Baghdad",
+        "option3": "Tehran",
+        "answer": "Tehran",
+        "image_source": "static/img/portfolio/asia/iran.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital of China?",
+        "option1": "Beijing",
+        "option2": "Siem Reap",
+        "option3": "Shanghai",
+        "answer": "Beijing",
+        "image_source": "static/img/portfolio/asia/china.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital of Laos?",
+        "option1": "Ulaanbaatar",
+        "option2": "Siem Reap",
+        "option3": "Vientiane",
+        "answer": "Beijing",
+        "image_source": "static/img/portfolio/asia/laos.png"
+    },
+    
+    {
+        "question": "Which of the following is the capital of Sri Lanka?",
+        "option1": "Ulaanbaatar",
+        "option2": "Colombo",
+        "option3": "Medan",
+        "answer": "Colombo",
+        "image_source": "static/img/portfolio/asia/sri_lanka.png"
     }
     
 ]

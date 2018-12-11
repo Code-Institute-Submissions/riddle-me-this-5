@@ -35,7 +35,7 @@ Get ALL incorrect answers
 """
 
 
-def get_africa_incorrect_list():
+def get_africa_incorrect_list():  # used to record a list of all incorrect answers
     list_incorrect = []
     with open("data/africa/africa_incorrect.txt", "r") as list_incorrect:
         list_incorrect = [row for row in list_incorrect]
@@ -46,7 +46,7 @@ Get ALL correct answers
 """
 
 
-def get_africa_correct_list():
+def get_africa_correct_list():  # used to record a list of all correct answers
     list_correct = []
     with open("data/africa/africa_correct.txt", "r") as list_correct:
         list_correct = [row for row in list_correct]
@@ -57,7 +57,7 @@ Get final score
 """
 
 
-def get_africa_score():
+def get_africa_score():  # used to record the final score after the final question
     final_score = []
     with open("data/africa/africa_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
@@ -68,12 +68,23 @@ Get Username for final score
 """
 
 
-def get_africa_username():
+def get_africa_username():  # used to record the current username for display on 'Final Score' page
     final_username = []
     with open("data/africa/africa_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
         return final_username
 
+
+"""
+Get Leaderboard Data
+"""
+
+
+def get_africa_leaderboard():  # used to get the Leaderboard data from 'africa_leaderboard.json'
+    africa_leaderboard = []
+    with open("data/africa/africa_scoreboard.json", "r") as africa_leaderboard:
+        africa_leaderboard = [row for row in africa_leaderboard]
+        return africa_leaderboard[-10:]
 
 """ Routing """
 
@@ -127,9 +138,15 @@ def africa_user(africa_username):
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
                 if index >= 10:
-                    submit_score = {"Score": request.form["score"], "Username": africa_username}
-                    json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
-                    with open("data/africa/africa_final_score.txt", "a") as answer:
+                    score = int(request.form["score"])
+                    correct_answer = (request.form["correct_answer"])
+                    user_answer = request.form["user_answer"].title()
+                    
+                    if user_answer == correct_answer:
+                        score +=1
+                        submit_score = ({"Score": request.form["score"], "Username": africa_username} + "\n")
+                        json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
+                        with open("data/africa/africa_final_score.txt", "a") as answer:
                             answer.write(request.form["score"] + "\n")
                             return redirect("africa_end")
 
@@ -144,7 +161,8 @@ def africa_end():
     incorrect_list = get_africa_incorrect_list()
     correct_list = get_africa_correct_list()
     username = get_africa_username()
-    return render_template("africa_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Africa", username=username)
+    leaderboard = get_africa_leaderboard()
+    return render_template("africa_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Africa", username=username, leaderboard = leaderboard)
 
 
 """
@@ -167,7 +185,7 @@ Get ALL incorrect answers
 """
 
 
-def get_asia_incorrect_list():
+def get_asia_incorrect_list():  # used to record a list of all incorrect answers
     list_incorrect = []
     with open("data/asia/asia_incorrect.txt", "r") as list_incorrect:
         list_incorrect = [row for row in list_incorrect]
@@ -178,7 +196,7 @@ Get ALL correct answers
 """
 
 
-def get_asia_correct_list():
+def get_asia_correct_list():  # used to record a list of all correct answers
     list_correct = []
     with open("data/asia/asia_correct.txt", "r") as list_correct:
         list_correct = [row for row in list_correct]
@@ -189,7 +207,7 @@ Get final score
 """
 
 
-def get_asia_score():
+def get_asia_score():  # used to record the final score after the final question
     final_score = []
     with open("data/asia/asia_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
@@ -200,7 +218,7 @@ Get Username for final score
 """
 
 
-def get_asia_username():
+def get_asia_username():  # used to record the current username for display on 'Final Score' page
     final_username = []
     with open("data/asia/asia_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
@@ -220,11 +238,11 @@ def asia_get_user():
             os.remove("data/asia/asia_last_incorrect.txt")  # removes file and previous data
             os.remove("data/asia/asia_correct.txt")  # removes file and previous data
             os.remove("data/asia/asia_final_score.txt")  # removes file and previous data
-        return redirect(request.form["asia_username"])
+        return redirect(url_for('asia_user', asia_username = request.form["asia_username"]))
     return render_template("asia_get_user.html", region="Asia")
 
 
-@app.route('/<asia_username>', methods=["GET", "POST"])
+@app.route('/asia_username<asia_username>', methods=["GET", "POST"])
 def asia_user(asia_username):
     data = []
     with open("data/asia/asia_quiz.json", "r") as json_data:
@@ -299,7 +317,7 @@ Get ALL incorrect answers
 """
 
 
-def get_australia_incorrect_list():
+def get_australia_incorrect_list():  # used to record a list of all incorrect answers
     list_incorrect = []
     with open("data/australia/australia_incorrect.txt", "r") as list_incorrect:
         list_incorrect = [row for row in list_incorrect]
@@ -310,7 +328,7 @@ Get ALL correct answers
 """
 
 
-def get_australia_correct_list():
+def get_australia_correct_list():  # used to record a list of all correct answers
     list_correct = []
     with open("data/australia/australia_correct.txt", "r") as list_correct:
         list_correct = [row for row in list_correct]
@@ -321,7 +339,7 @@ Get final score
 """
 
 
-def get_australia_score():
+def get_australia_score():  # used to record the final score after the final question
     final_score = []
     with open("data/australia/australia_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
@@ -332,7 +350,7 @@ Get Username for final score
 """
 
 
-def get_australia_username():
+def get_australia_username():  # used to record the current username for display on 'Final Score' page
     final_username = []
     with open("data/australia/australia_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
@@ -352,11 +370,11 @@ def australia_get_user():
             os.remove("data/australia/australia_last_incorrect.txt")  # removes file and previous data
             os.remove("data/australia/australia_correct.txt")  # removes file and previous data
             os.remove("data/australia/australia_final_score.txt")  # removes file and previous data
-        return redirect(request.form["australia_username"])
+        return redirect(url_for('australia_user', australia_username = request.form["australia_username"]))
     return render_template("australia_get_user.html", region="Australia")
 
 
-@app.route('/<australia_username>', methods=["GET", "POST"])
+@app.route('/australia_username<australia_username>', methods=["GET", "POST"])
 def australia_user(australia_username):
     data = []
     with open("data/australia/australia_quiz.json", "r") as json_data:
@@ -431,7 +449,7 @@ Get ALL incorrect answers
 """
 
 
-def get_europe_incorrect_list():
+def get_europe_incorrect_list():  # used to record a list of all incorrect answers
     list_incorrect = []
     with open("data/europe/europe_incorrect.txt", "r") as list_incorrect:
         list_incorrect = [row for row in list_incorrect]
@@ -442,7 +460,7 @@ Get ALL correct answers
 """
 
 
-def get_europe_correct_list():
+def get_europe_correct_list():  # used to record a list of all correct answers
     list_correct = []
     with open("data/europe/europe_correct.txt", "r") as list_correct:
         list_correct = [row for row in list_correct]
@@ -453,7 +471,7 @@ Get final score
 """
 
 
-def get_europe_score():
+def get_europe_score():  # used to record the final score after the final question
     final_score = []
     with open("data/europe/europe_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
@@ -464,7 +482,7 @@ Get Username for final score
 """
 
 
-def get_europe_username():
+def get_europe_username():  # used to record the current username for display on 'Final Score' page
     final_username = []
     with open("data/europe/europe_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
@@ -563,7 +581,7 @@ Get ALL incorrect answers
 """
 
 
-def get_n_america_incorrect_list():
+def get_n_america_incorrect_list():  # used to record a list of all incorrect answers
     list_incorrect = []
     with open("data/n_america/n_america_incorrect.txt", "r") as list_incorrect:
         list_incorrect = [row for row in list_incorrect]
@@ -574,7 +592,7 @@ Get ALL correct answers
 """
 
 
-def get_n_america_correct_list():
+def get_n_america_correct_list():  # used to record a list of all correct answers
     list_correct = []
     with open("data/n_america/n_america_correct.txt", "r") as list_correct:
         list_correct = [row for row in list_correct]
@@ -585,7 +603,7 @@ Get final score
 """
 
 
-def get_n_america_score():
+def get_n_america_score():  # used to record the final score after the final question
     final_score = []
     with open("data/n_america/n_america_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
@@ -596,7 +614,7 @@ Get Username for final score
 """
 
 
-def get_n_america_username():
+def get_n_america_username():  # used to record the current username for display on 'Final Score' page
     final_username = []
     with open("data/n_america/n_america_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
@@ -695,7 +713,7 @@ Get ALL incorrect answers
 """
 
 
-def get_s_america_incorrect_list():
+def get_s_america_incorrect_list():  # used to record a list of all incorrect answers
     list_incorrect = []
     with open("data/s_america/s_america_incorrect.txt", "r") as list_incorrect:
         list_incorrect = [row for row in list_incorrect]
@@ -706,7 +724,7 @@ Get ALL correct answers
 """
 
 
-def get_s_america_correct_list():
+def get_s_america_correct_list():  # used to record a list of all correct answers
     list_correct = []
     with open("data/s_america/s_america_correct.txt", "r") as list_correct:
         list_correct = [row for row in list_correct]
@@ -717,7 +735,7 @@ Get final score
 """
 
 
-def get_s_america_score():
+def get_s_america_score():  # used to record the final score after the final question
     final_score = []
     with open("data/s_america/s_america_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
@@ -728,7 +746,7 @@ Get Username for final score
 """
 
 
-def get_s_america_username():
+def get_s_america_username():  # used to record the current username for display on 'Final Score' page
     final_username = []
     with open("data/s_america/s_america_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
