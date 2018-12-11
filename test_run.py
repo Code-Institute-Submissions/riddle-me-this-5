@@ -502,11 +502,11 @@ def europe_get_user():
             os.remove("data/europe/europe_last_incorrect.txt")  # removes file and previous data
             os.remove("data/europe/europe_correct.txt")  # removes file and previous data
             os.remove("data/europe/europe_final_score.txt")  # removes file and previous data
-        return redirect(request.form["europe_username"])
+        return redirect(url_for('europe_user', europe_username = request.form["europe_username"]))
     return render_template("europe_get_user.html", region="Europe")
 
 
-@app.route('/<europe_username>', methods=["GET", "POST"])
+@app.route('/europe_username<europe_username>', methods=["GET", "POST"])
 def europe_user(europe_username):
     data = []
     with open("data/europe/europe_quiz.json", "r") as json_data:
