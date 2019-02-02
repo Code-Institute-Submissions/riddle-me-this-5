@@ -107,7 +107,7 @@ def africa_get_user():
     if request.method == "POST":
         os.remove("data/africa/africa_users.txt")  # removes file and previous data
         with open("data/africa/africa_users.txt", "a") as user_list:
-            user_list.write(request.form["africa_username"] + "\n")
+            user_list.write(request.form["africa_username"])
             os.remove("data/africa/africa_incorrect.txt")  # removes file and previous data
             os.remove("data/africa/africa_last_incorrect.txt")  # removes file and previous data
             os.remove("data/africa/africa_correct.txt")  # removes file and previous data
@@ -158,16 +158,16 @@ def africa_user(africa_username):
                     if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
                         score = int(request.form["score"])
                         score += 1
-                        submit_score = ({"Score": request.form["score"], "Username":africa_username} + "\n")
+                        submit_score = ({"Score": request.form["score"], "Username":africa_username})
                         json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
                         with open("data/africa/africa_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"] + "\n")
+                            answer.write(request.form["score"])
                             
-                    elif user_answer != correct_answer: # if answer is correct, submit final score and username
-                        submit_score = ({"Score": request.form["score"], "Username":africa_username} + "\n")
+                    elif user_answer != correct_answer: # if answer is not correct, submit final score and username
+                        submit_score = ({"Score": request.form["score"], "Username":africa_username})
                         json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
                         with open("data/africa/africa_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"] + "\n")
+                            answer.write(request.form["score"])
                             
                     return redirect("africa_end")
 

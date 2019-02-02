@@ -47,9 +47,21 @@
     
     
         <h5>Leaders of Africa</h5>
-        {% for leader in leaderboard %}
-    	<ul>{{ leader }}</ul>
-    	{% endfor %}
+        <table style="width:100%">
+          <tr>
+          <th>Name</th>
+          <th>Score</th>
+          </tr>
+          <tr>
+          <td>{% for leader in leaderboard %}
+    			<ul>{{ leader ["username"] }}</ul>
+    			{% endfor %}</td>
+          <td>{% for leader in leaderboard %}
+    			<ul>{{ leader ['score'] }}</ul>
+    			{% endfor %}</td> 
+          </tr>
+          </table>
+  
       </div>
     </section>
     
