@@ -1,8 +1,16 @@
+[
+    {
+    "Username": "Eddie",
+    "Score": 1
+},
 {
     "Username": "Eddie",
     "Score": 1
-}
+},
+
 {
-    "Username": "Eddie",
-    "Score": 1
+    "Username": "Joe",
+    "Score": 2
 }
+
+]

@@ -55,10 +55,10 @@
           {% for leader in leaderboard %}
           <tr>
           <td>
-    			<ul>{{ leader }}</ul>
+    			<ul>{{ leader.username }}</ul>
     			</td>
           <td>
-    			<ul>{{ leader["score"] }}</ul>
+    			<ul>{{ leader.score }}</ul>
     			</td> 
           </tr>
           {% endfor %}
