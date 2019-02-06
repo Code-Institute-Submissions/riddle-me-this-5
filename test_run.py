@@ -158,13 +158,13 @@ def africa_user(africa_username):
                     if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
                         score = int(request.form["score"])
                         score += 1
-                        submit_score = ({"Score": request.form["score"], "Username":africa_username})
+                        submit_score = ({"Score": score, "Username": africa_username})
                         json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
                         with open("data/africa/africa_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"])
+                            answer.write(str(score))
                             
                     elif user_answer != correct_answer: # if answer is not correct, submit final score and username
-                        submit_score = ({"Score": request.form["score"], "Username":africa_username})
+                        submit_score = ({"Score": request.form["score"], "Username": africa_username})
                         json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
                         with open("data/africa/africa_final_score.txt", "a") as answer:
                             answer.write(request.form["score"])
