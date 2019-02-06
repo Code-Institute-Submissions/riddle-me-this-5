@@ -158,14 +158,18 @@ def africa_user(africa_username):
                     if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
                         score = int(request.form["score"])
                         score += 1
-                        submit_score = ({"Score": score, "Username": africa_username})
-                        json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
+                        #submit_score = ({"Score": score, "Username": africa_username})
+                        with open("data/africa/africa_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": africa_username}, json_file, indent=4)
+                            json_file.write("\n")
                         with open("data/africa/africa_final_score.txt", "a") as answer:
                             answer.write(str(score))
                             
                     elif user_answer != correct_answer: # if answer is not correct, submit final score and username
-                        submit_score = ({"Score": request.form["score"], "Username": africa_username})
-                        json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
+                        #submit_score = ({"Score": request.form["score"], "Username": africa_username})
+                        with open("data/africa/africa_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": africa_username}, json_file, indent=4)
+                            json_file.write("\n")
                         with open("data/africa/africa_final_score.txt", "a") as answer:
                             answer.write(request.form["score"])
                             
@@ -182,7 +186,7 @@ def africa_end():
     incorrect_list = get_africa_incorrect_list()
     correct_list = get_africa_correct_list()
     username = get_africa_username()
-    leaderboard = get_africa_leaderboard()
+    leaderboard = sorted(get_africa_leaderboard(),reverse=True)
     return render_template("africa_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Africa", username=username, leaderboard = leaderboard)
 
 
