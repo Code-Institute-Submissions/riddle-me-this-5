@@ -72,12 +72,12 @@
     },
     
     {
-        "question": "What is the capital city of Luxembourg?",
+        "question": "What is the capital city of Austria?",
         "option1": "Bucharest",
         "option2": "Brussels",
-        "option3": "Luxembourg City",
-        "answer": "Luxembourg City",
-        "image_source": "static/img/portfolio/europe/luxembourg.png"
+        "option3": "Vienna",
+        "answer": "Vienna",
+        "image_source": "static/img/portfolio/europe/austria.png"
     },
     
     {
