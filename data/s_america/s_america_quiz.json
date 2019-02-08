@@ -1,28 +1,92 @@
 [
     {
         "question": "What is the capital city of Brazil?",
-        "option1": "Lusaka",
-        "option2": "Kigali",
-        "option3": "Nairobi",
-        "answer": "Nairobi",
-        "image_source": "static/img/portfolio/africa/kenya.png"
+        "option1": "Buenos Aires",
+        "option2": "Brasilia",
+        "option3": "Rio de Janeiro",
+        "answer": "Brasilia",
+        "image_source": "static/img/portfolio/s_america/brazil.png"
     },
     
     {
-        "question": "Which of the following is the city in Ehtiopia?",
-        "option1": "Addis Ababa",
-        "option2": "Johannesburg",
-        "option3": "Lusaka",
-        "answer": "Addis Ababa",
-        "image_source": "static/img/portfolio/africa/ethiopia.png"
+        "question": "What is the capital city of Chile?",
+        "option1": "Buenos Aires",
+        "option2": "Brasilia",
+        "option3": "Santiago",
+        "answer": "Santiago",
+        "image_source": "static/img/portfolio/s_america/chile.png"
     },
     
     {
-        "question": "Which of the following is the largest city in South Africa?",
-        "option1": "Pretoria",
-        "option2": "Cape Town",
-        "answer": "Johannesburg",
-        "image_source": "static/img/portfolio/africa/south_africa.png"
+        "question": "What is the capital city of Colombia?",
+        "option1": "Buenos Aires",
+        "option2": "Lima",
+        "option3": "Bogota",
+        "answer": "Bogota",
+        "image_source": "static/img/portfolio/s_america/colombia.png"
+    },
+    
+    {
+        "question": "What is the capital city of Ecuador?",
+        "option1": "Quito",
+        "option2": "Lime",
+        "option3": "Bogota",
+        "answer": "Quito",
+        "image_source": "static/img/portfolio/s_america/ecuador.png"
+    },
+    
+    {
+        "question": "What is the capital city of Guyana?",
+        "option1": "Quito",
+        "option2": "Lima",
+        "option3": "Georgetown",
+        "answer": "Georgetown",
+        "image_source": "static/img/portfolio/s_america/guyana.png"
+    },
+    
+    {
+        "question": "What is the capital city of Paraguay?",
+        "option1": "Asuncion",
+        "option2": "Caracas",
+        "option3": "Georgetown",
+        "answer": "Asuncion",
+        "image_source": "static/img/portfolio/s_america/paraguay.png"
+    },
+    
+    {
+        "question": "What is the capital city of Peru?",
+        "option1": "Asuncion",
+        "option2": "Caracas",
+        "option3": "Lima",
+        "answer": "Lima",
+        "image_source": "static/img/portfolio/s_america/peru.png"
+    },
+    
+    {
+        "question": "What is the capital city of Suriname?",
+        "option1": "Paramaribo",
+        "option2": "La Paz",
+        "option3": "Sucre",
+        "answer": "Paramaribo",
+        "image_source": "static/img/portfolio/s_america/suriname.png"
+    },
+    
+    {
+        "question": "What is the capital city of Uruguay?",
+        "option1": "Paramaribo",
+        "option2": "Montevideo",
+        "option3": "Sucre",
+        "answer": "Montevideo",
+        "image_source": "static/img/portfolio/s_america/uruguay.png"
+    },
+    
+    {
+        "question": "What is the capital city of Venezuela?",
+        "option1": "Caracas",
+        "option2": "Montevideo",
+        "option3": "Sucre",
+        "answer": "Caracas",
+        "image_source": "static/img/portfolio/s_america/venezuela.png"
     }
     
 ]

@@ -1,11 +1,11 @@
 [
     {
-        "question": "What is the capital city of Philippines?",
+        "question": "What is the capital city of Lebanon?",
         "option1": "New Dheli",
-        "option2": "Manila",
+        "option2": "Beirut",
         "option3": "Jakarta",
-        "answer": "Manila",
-        "image_source": "static/img/portfolio/asia/philippines.png"
+        "answer": "Beirut",
+        "image_source": "static/img/portfolio/asia/lebanon.png"
     },
     
     {

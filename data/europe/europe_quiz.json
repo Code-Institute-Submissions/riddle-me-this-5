@@ -1,28 +1,92 @@
 [
     {
         "question": "What is the capital city of Ireland?",
-        "option1": "Lusaka",
-        "option2": "Kigali",
-        "option3": "Nairobi",
-        "answer": "Nairobi",
-        "image_source": "static/img/portfolio/africa/kenya.png"
+        "option1": "Belfast",
+        "option2": "Dublin",
+        "option3": "Cork",
+        "answer": "Dublin",
+        "image_source": "static/img/portfolio/europe/ireland.png"
     },
     
     {
-        "question": "Which of the following is the city in Ehtiopia?",
-        "option1": "Addis Ababa",
-        "option2": "Johannesburg",
-        "option3": "Lusaka",
-        "answer": "Addis Ababa",
-        "image_source": "static/img/portfolio/africa/ethiopia.png"
+        "question": "What is the capital city of Denmark?",
+        "option1": "Malmo",
+        "option2": "Berlin",
+        "option3": "Copenhagen",
+        "answer": "Copenhagen",
+        "image_source": "static/img/portfolio/europe/denmark.png"
     },
     
     {
-        "question": "Which of the following is the largest city in South Africa?",
-        "option1": "Pretoria",
-        "option2": "Cape Town",
-        "answer": "Johannesburg",
-        "image_source": "static/img/portfolio/africa/south_africa.png"
+        "question": "What is the capital city of Spain?",
+        "option1": "Porto",
+        "option2": "Barcelona",
+        "option3": "Madrid",
+        "answer": "Madrid",
+        "image_source": "static/img/portfolio/europe/spain.png"
+    },
+    
+    {
+        "question": "What is the capital city of Switzerland?",
+        "option1": "Berlin",
+        "option2": "Bern",
+        "option3": "Zurich",
+        "answer": "Bern",
+        "image_source": "static/img/portfolio/europe/switzerland.png"
+    },
+    
+    {
+        "question": "What is the capital city of Greece?",
+        "option1": "Athens",
+        "option2": "Izmir",
+        "option3": "Beirut",
+        "answer": "Athens",
+        "image_source": "static/img/portfolio/europe/greece.png"
+    },
+    
+    {
+        "question": "What is the capital city of Hungary?",
+        "option1": "Bucharest",
+        "option2": "Budapest",
+        "option3": "Belgrade",
+        "answer": "Budapest",
+        "image_source": "static/img/portfolio/europe/hungary.png"
+    },
+    
+    {
+        "question": "What is the capital city of Croatia?",
+        "option1": "Bucharest",
+        "option2": "Zagreb",
+        "option3": "Belgrade",
+        "answer": "Zagreb",
+        "image_source": "static/img/portfolio/europe/croatia.png"
+    },
+    
+    {
+        "question": "What is the capital city of Sweden?",
+        "option1": "Malmo",
+        "option2": "Helsinki",
+        "option3": "Stockholm",
+        "answer": "Stockholm",
+        "image_source": "static/img/portfolio/europe/sweden.png"
+    },
+    
+    {
+        "question": "What is the capital city of Luxembourg?",
+        "option1": "Bucharest",
+        "option2": "Brussels",
+        "option3": "Luxembourg City",
+        "answer": "Luxembourg City",
+        "image_source": "static/img/portfolio/europe/luxembourg.png"
+    },
+    
+    {
+        "question": "What is the capital city of Portugal?",
+        "option1": "Bucharest",
+        "option2": "Lisbon",
+        "option3": "Porto",
+        "answer": "Lisbon",
+        "image_source": "static/img/portfolio/europe/portugal.png"
     }
     
 ]

@@ -1,28 +1,91 @@
 [
     {
         "question": "What is the capital city of New South Wales?",
-        "option1": "Lusaka",
-        "option2": "Kigali",
-        "option3": "Nairobi",
-        "answer": "Nairobi",
-        "image_source": "static/img/portfolio/africa/kenya.png"
+        "option1": "Brisbane",
+        "option2": "Sydney",
+        "option3": "Perth",
+        "answer": "Sydney",
+        "image_source": "static/img/portfolio/australia/new-south-wales.png"
     },
     
     {
-        "question": "Which of the following is the city in Ehtiopia?",
-        "option1": "Addis Ababa",
-        "option2": "Johannesburg",
-        "option3": "Lusaka",
-        "answer": "Addis Ababa",
-        "image_source": "static/img/portfolio/africa/ethiopia.png"
+        "question": "What is the capital city of Queensland?",
+        "option1": "Brisbane",
+        "option2": "Sydney",
+        "option3": "Perth",
+        "answer": "Brisbane",
+        "image_source": "static/img/portfolio/australia/queensland.png"
     },
     
     {
-        "question": "Which of the following is the largest city in South Africa?",
-        "option1": "Pretoria",
-        "option2": "Cape Town",
-        "answer": "Johannesburg",
-        "image_source": "static/img/portfolio/africa/south_africa.png"
+       "question": "What is the capital city of South Australia?",
+        "option1": "Brisbane",
+        "option2": "Sydney",
+        "option3": "Adelaide",
+        "answer": "Adelaide",
+        "image_source": "static/img/portfolio/australia/south-australia.png"
+    },
+    
+    {
+       "question": "What is the capital city of Tasmania?",
+        "option1": "Brisbane",
+        "option2": "Hobart",
+        "option3": "Adelaide",
+        "answer": "Hobart",
+        "image_source": "static/img/portfolio/australia/tasmania.png"
+    },
+    
+     {
+       "question": "What is the capital city of Victoria?",
+        "option1": "Kingston",
+        "option2": "Darwin",
+        "option3": "Melbourne",
+        "answer": "Melbourne",
+        "image_source": "static/img/portfolio/australia/victoria.png"
+    },
+    
+    {
+       "question": "What is the capital city of Western Australia?",
+        "option1": "Kingston",
+        "option2": "Melbourne",
+        "option3": "Perth",
+        "answer": "Perth",
+        "image_source": "static/img/portfolio/australia/western-australia.png"
+    },
+    
+     {
+       "question": "What is the capital city of Australia Capital Territory?",
+        "option1": "Canberra",
+        "option2": "Darwin",
+        "option3": "Perth",
+        "answer": "Canberra",
+        "image_source": "static/img/portfolio/australia/capital-territory.png"
+    },
+    
+    {
+       "question": "What is the capital city of the Northern Territory?",
+        "option1": "Canberra",
+        "option2": "Darwin",
+        "option3": "Perth",
+        "answer": "Darwin",
+        "image_source": "static/img/portfolio/australia/northern-territory.png"
+    },
+    
+    {
+       "question": "What is the capital city of Cocos Islands?",
+        "option1": "Canberra",
+        "option2": "Panjang",
+        "option3": "Perth",
+        "answer": "Panjang",
+        "image_source": "static/img/portfolio/australia/cocos-islands.png"
+    },
+    
+    {
+       "question": "What is the capital city of Norfolk Island?",
+        "option1": "Kingston",
+        "option2": "Darwin",
+        "option3": "Perth",
+        "answer": "Kingston",
+        "image_source": "static/img/portfolio/australia/norfolk-island.png"
     }
-    
 ]
