@@ -1,16 +1,17 @@
-[
-    {
-    "Username": "Eddie",
-    "Score": 1
-},
+{"Score": 1, "Username": "Frank"}
+{"Score": 3, "Username": "Frank"}	
+{"Score": 2, "Username": "Frank"}	
+{"Score": 4, "Username": "Frank"}	
+{"Score": 6, "Username": "Frank"}	
+{"Score": 5, "Username": "Frank"}	
+{"Score": 8, "Username": "Frank"}	
+{"Score": 8, "Username": "Frank"}	
+{"Score": 7, "Username": "Frank"}	
+{"Score": 9, "Username": "Frank"}	{
+    "Score": 2,
+    "Username": "Eddie"
+}
 {
     "Username": "Eddie",
-    "Score": 1
-},
-
-{
-    "Username": "Joe",
     "Score": 2
 }
-
-]

@@ -46,7 +46,7 @@
         <hr class="star-light mb-5">
     
     
-        <h5>Top 10 Leaders of Africa</h5>
+        <h5>Top 10 Leaders of African Quiz</h5>
         <table style="width:100%">
           <tr>
           <th>Name</th>
@@ -55,10 +55,12 @@
           {% for leader in leaderboard %}
           <tr>
           <td>
-    			<ul>{{ leader.username }}</ul>
+    			<!--<ul>{{ leader.username }}</ul>-->
+    			<ul>{{ leader }}</ul>
     			</td>
           <td>
-    			<ul>{{ leader.score }}</ul>
+    			<!--<ul>{{ leader.score }}</ul>-->
+    			<ul>{{ leader }}</ul>
     			</td> 
           </tr>
           {% endfor %}

@@ -84,7 +84,8 @@ Get Leaderboard Data
 def get_africa_leaderboard():  # used to get the Leaderboard data from 'africa_leaderboard.json'
     africa_leaderboard = []
     with open("data/africa/africa_scoreboard.json", "r") as africa_leaderboard:
-        africa_leaderboard = [row for row in africa_leaderboard]
+        africa_leaderboard = json.load(africa_leaderboard)
+        #africa_leaderboard = [row for row in africa_leaderboard]
         return africa_leaderboard[-10:]
 
 
