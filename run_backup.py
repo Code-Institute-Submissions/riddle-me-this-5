@@ -12,8 +12,7 @@ Routing for Index.html
 
 @app.route('/')
 def index():
-    leader_africa = get_africa_leader()
-    return render_template("index.html", leader_africa=leader_africa)
+    return render_template("index.html")
 
 
 """
@@ -62,7 +61,7 @@ def get_africa_score():  # used to record the final score after the final questi
     final_score = []
     with open("data/africa/africa_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
-        return final_score[-1:]
+        return final_score
 
 """
 Get Username for final score
@@ -73,31 +72,7 @@ def get_africa_username():  # used to record the current username for display on
     final_username = []
     with open("data/africa/africa_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
-        return final_username[-1:]
-
-
-"""
-Get Leaderboard Data
-"""
-
-
-def get_africa_leaderboard():  # used to get the Leaderboard data from 'africa_leaderboard.json'
-    africa_leaderboard = []
-    with open("data/africa/africa_scoreboard.json", "r") as africa_leaderboard:
-        africa_leaderboard = json.load(africa_leaderboard)
-        #africa_leaderboard = [row for row in africa_leaderboard]
-        return africa_leaderboard[-10:]
-
-
-"""
-Get Leader
-"""
-
-def get_africa_leader():  # used to get the Leaderboard data from 'africa_leaderboard.json'
-    africa_leader = []
-    with open("data/africa/africa_scoreboard.json", "r") as africa_leader:
-        africa_leader = [row for row in africa_leader]
-        return africa_leader[-1:]
+        return final_username
 
 
 """ Routing """
@@ -108,16 +83,16 @@ def africa_get_user():
     if request.method == "POST":
         os.remove("data/africa/africa_users.txt")  # removes file and previous data
         with open("data/africa/africa_users.txt", "a") as user_list:
-            user_list.write(request.form["africa_username"])
+            user_list.write(request.form["africa_username"] + "\n")
             os.remove("data/africa/africa_incorrect.txt")  # removes file and previous data
             os.remove("data/africa/africa_last_incorrect.txt")  # removes file and previous data
             os.remove("data/africa/africa_correct.txt")  # removes file and previous data
             os.remove("data/africa/africa_final_score.txt")  # removes file and previous data
-        return redirect(url_for('africa_user', africa_username = request.form["africa_username"]))
+        return redirect(request.form["africa_username"])
     return render_template("africa_get_user.html", region="Africa")
 
 
-@app.route('/africa_username<africa_username>', methods=["GET", "POST"])
+@app.route('/<africa_username>', methods=["GET", "POST"])
 def africa_user(africa_username):
     data = []
     with open("data/africa/africa_quiz.json", "r") as json_data:
@@ -152,29 +127,11 @@ def africa_user(africa_username):
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
                 if index >= 10:
-                    score = int(request.form["score"])
-                    correct_answer = (request.form["correct_answer"])
-                    user_answer = request.form["user_answer"].title()
-                    
-                    if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
-                        score = int(request.form["score"])
-                        score += 1
-                        #submit_score = ({"Score": score, "Username": africa_username})
-                        with open("data/africa/africa_scoreboard.json", "a") as json_file:
-                            json.dump({"Score": score, "Username": africa_username}, json_file, indent=4)
-                            json_file.write("\n")
-                        with open("data/africa/africa_final_score.txt", "a") as answer:
-                            answer.write(str(score))
-                            
-                    elif user_answer != correct_answer: # if answer is not correct, submit final score and username
-                        #submit_score = ({"Score": request.form["score"], "Username": africa_username})
-                        with open("data/africa/africa_scoreboard.json", "a") as json_file:
-                            json.dump({"Score": score, "Username": africa_username}, json_file, indent=4)
-                            json_file.write("\n")
-                        with open("data/africa/africa_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"])
-                            
-                    return redirect("africa_end")
+                    submit_score = {"Score": request.form["score"], "Username": africa_username}
+                    json.dump(submit_score, open("data/africa/africa_scoreboard.json", "a"))
+                    with open("data/africa/africa_final_score.txt", "a") as answer:
+                            answer.write(request.form["score"] + "\n")
+                            return redirect("africa_end")
 
     incorrect_answer = get_africa_incorrect_answer()
 
@@ -187,8 +144,7 @@ def africa_end():
     incorrect_list = get_africa_incorrect_list()
     correct_list = get_africa_correct_list()
     username = get_africa_username()
-    leaderboard = sorted(get_africa_leaderboard(),reverse=True)
-    return render_template("africa_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Africa", username=username, leaderboard = leaderboard)
+    return render_template("africa_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Africa", username=username)
 
 
 """
@@ -264,11 +220,11 @@ def asia_get_user():
             os.remove("data/asia/asia_last_incorrect.txt")  # removes file and previous data
             os.remove("data/asia/asia_correct.txt")  # removes file and previous data
             os.remove("data/asia/asia_final_score.txt")  # removes file and previous data
-        return redirect(url_for('asia_user', asia_username = request.form["asia_username"]))
+        return redirect(request.form["asia_username"])
     return render_template("asia_get_user.html", region="Asia")
 
 
-@app.route('/asia_username<asia_username>', methods=["GET", "POST"])
+@app.route('/<asia_username>', methods=["GET", "POST"])
 def asia_user(asia_username):
     data = []
     with open("data/asia/asia_quiz.json", "r") as json_data:
@@ -396,11 +352,11 @@ def australia_get_user():
             os.remove("data/australia/australia_last_incorrect.txt")  # removes file and previous data
             os.remove("data/australia/australia_correct.txt")  # removes file and previous data
             os.remove("data/australia/australia_final_score.txt")  # removes file and previous data
-        return redirect(url_for('australia_user', australia_username = request.form["australia_username"]))
+        return redirect(request.form["australia_username"])
     return render_template("australia_get_user.html", region="Australia")
 
 
-@app.route('/australia_username<australia_username>', methods=["GET", "POST"])
+@app.route('/<australia_username>', methods=["GET", "POST"])
 def australia_user(australia_username):
     data = []
     with open("data/australia/australia_quiz.json", "r") as json_data:
@@ -528,11 +484,11 @@ def europe_get_user():
             os.remove("data/europe/europe_last_incorrect.txt")  # removes file and previous data
             os.remove("data/europe/europe_correct.txt")  # removes file and previous data
             os.remove("data/europe/europe_final_score.txt")  # removes file and previous data
-        return redirect(url_for('europe_user', europe_username = request.form["europe_username"]))
+        return redirect(request.form["europe_username"])
     return render_template("europe_get_user.html", region="Europe")
 
 
-@app.route('/europe_username<europe_username>', methods=["GET", "POST"])
+@app.route('/<europe_username>', methods=["GET", "POST"])
 def europe_user(europe_username):
     data = []
     with open("data/europe/europe_quiz.json", "r") as json_data:
@@ -660,11 +616,11 @@ def n_america_get_user():
             os.remove("data/n_america/n_america_last_incorrect.txt")  # removes file and previous data
             os.remove("data/n_america/n_america_correct.txt")  # removes file and previous data
             os.remove("data/n_america/n_america_final_score.txt")  # removes file and previous data
-        return redirect(url_for('n_america_user', n_america_username = request.form["n_america_username"]))
+        return redirect(request.form["n_america_username"])
     return render_template("n_america_get_user.html", region="N_america")
 
 
-@app.route('/n_america_username<n_america_username>', methods=["GET", "POST"])
+@app.route('/<n_america_username>', methods=["GET", "POST"])
 def n_america_user(n_america_username):
     data = []
     with open("data/n_america/n_america_quiz.json", "r") as json_data:
@@ -792,11 +748,11 @@ def s_america_get_user():
             os.remove("data/s_america/s_america_last_incorrect.txt")  # removes file and previous data
             os.remove("data/s_america/s_america_correct.txt")  # removes file and previous data
             os.remove("data/s_america/s_america_final_score.txt")  # removes file and previous data
-        return redirect(url_for('s_america_user', s_america_username = request.form["s_america_username"]))
+        return redirect(request.form["s_america_username"])
     return render_template("s_america_get_user.html", region="S_america")
 
 
-@app.route('/s_america_username<s_america_username>', methods=["GET", "POST"])
+@app.route('/<s_america_username>', methods=["GET", "POST"])
 def s_america_user(s_america_username):
     data = []
     with open("data/s_america/s_america_quiz.json", "r") as json_data:
