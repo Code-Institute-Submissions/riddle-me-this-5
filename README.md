@@ -100,10 +100,32 @@ The user then selects the button for the quiz of their choice, and this will ope
 
 ![flowchart](https://user-images.githubusercontent.com/28737216/47255466-88686e00-d469-11e8-9d4b-5ca332dfc775.PNG)
 
+### Functions requiring additional work before being fully implemented
 
+There were persistent problems displaying the Leaderboard data correctly (e.g. "africa_scoreboard.json"), due the data file not being read correctly. Although the file extension is .json the data itself is not in a JSON format.  With some more time, I am confident that this I could find a solution to this issue.
+
+The code for adding the data to the file, and sorting it in descending order (to the top 10 only) is working fine:
+
+Lines 84-89 of run.py
+```python
+def get_africa_leaderboard():  # used to get the Leaderboard data from 'africa_leaderboard.json'
+    africa_leaderboard = []
+    with open("data/africa/africa_scoreboard.json", "r") as africa_leaderboard:
+        africa_leaderboard = json.load(africa_leaderboard)
+        #africa_leaderboard = [row for row in africa_leaderboard]
+        return africa_leaderboard[-10:]
+```
+
+Line 190 of run.py
+
+```python
+leaderboard = sorted(get_africa_leaderboard(),reverse=True)
+```
 ## Testing
 
 Mainly manual testing used throughout - for routing and checking if data is properly rendered in the correct template and format, 
 "test_run.py" was used, whereby on satisfactory completion, the clean functional code would then be transferred to the "run.py" file
 
-Use of Pep 8 to clean data - indentation, whitespaces, non-spaces, 2 lines expected....
+Pep 8 was used to assist with cleaning the data - indentation, whitespaces, non-spaces, 2 lines expected
+
+http://pep8online.com/
