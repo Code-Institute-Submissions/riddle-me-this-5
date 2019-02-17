@@ -2,12 +2,20 @@
 
 ## Riddle-Me-This (Brief)
 
-A web application game that asks players to guess the answer to a pictorial or text-based riddle.
-The player is presented with an image or text that contains the riddle. Players enter their answer into a textarea and submit their answer using a form.
-If a player guesses correctly, they are redirected to the next riddle.
-If a player guesses incorrectly, their incorrect guess is stored and printed below the riddle. The textarea is cleared so they can guess again.
-Multiple players can play an instance of the game at the same time. Users are identified by a unique username.
-Create a leaderboard that ranks top scores for all users.
+A web application game that asks players to guess the answer to geogrpahy based questions (Capital cities of the world).
+
+The player is presented with a selection of regions/continents to select from and is then presented with multiple choice questions. Players enter their answer into a textarea and submit their answer using a form.
+
+After each answer is submitted, the player is redirected to the next question.
+
+If a player guesses incorrectly, their incorrect guess is stored and printed below the next question and their score remains the same.
+If a player guesses correctly, their score implements by 1 point and the next question is displayed.
+
+Their current score will be displayed throughout the quiz.
+
+After answering 10 questions, the players final score will be displayed, along with a table showing their correct and incorrect answers.
+
+A leaderboard showing the top 10 players for each quiz will also be available (currently some issues with this functionality, see below)
 
 Full project is deployed on Heroku at this <a href="https://world-cities-quiz.herokuapp.com/" target="_blank" >location</a>.
 
@@ -121,6 +129,11 @@ Line 190 of run.py
 ```python
 leaderboard = sorted(get_africa_leaderboard(),reverse=True)
 ```
+
+Lastly, when rendering the `Username`and `Score`variables on the results/end of game page, the data displays with square brackets around it:
+
+![username_score_display](https://user-images.githubusercontent.com/28737216/52918042-7351fd80-32ea-11e9-9c62-d603f5fd2c59.png)
+
 ## Testing
 
 Mainly manual testing used throughout - for routing and checking if data is properly rendered in the correct template and format, 
