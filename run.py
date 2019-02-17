@@ -237,7 +237,7 @@ def get_asia_score():  # used to record the final score after the final question
     final_score = []
     with open("data/asia/asia_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
-        return final_score
+        return final_score[-1:]
 
 """
 Get Username for final score
@@ -248,7 +248,31 @@ def get_asia_username():  # used to record the current username for display on '
     final_username = []
     with open("data/asia/asia_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
-        return final_username
+        return final_username[-1:]
+
+
+"""
+Get Leaderboard Data
+"""
+
+
+def get_asia_leaderboard():  # used to get the Leaderboard data from 'asia_leaderboard.json'
+    asia_leaderboard = []
+    with open("data/asia/asia_scoreboard.json", "r") as asia_leaderboard:
+        #asia_leaderboard = json.load(asia_leaderboard)
+        asia_leaderboard = [row for row in asia_leaderboard]
+        return asia_leaderboard[-10:]
+
+
+"""
+Get Leader
+"""
+
+def get_asia_leader():  # used to get the Leaderboard data from 'asia_leaderboard.json'
+    asia_leader = []
+    with open("data/asia/asia_scoreboard.json", "r") as asia_leader:
+        asia_leader = [row for row in asia_leader]
+        return asia_leader[-1:]
 
 
 """ Routing """
@@ -259,7 +283,7 @@ def asia_get_user():
     if request.method == "POST":
         os.remove("data/asia/asia_users.txt")  # removes file and previous data
         with open("data/asia/asia_users.txt", "a") as user_list:
-            user_list.write(request.form["asia_username"] + "\n")
+            user_list.write(request.form["asia_username"])
             os.remove("data/asia/asia_incorrect.txt")  # removes file and previous data
             os.remove("data/asia/asia_last_incorrect.txt")  # removes file and previous data
             os.remove("data/asia/asia_correct.txt")  # removes file and previous data
@@ -302,12 +326,30 @@ def asia_user(asia_username):
                 score = score
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
-                if index >= 9:
-                    submit_score = {"Score": request.form["score"], "Username": asia_username}
-                    json.dump(submit_score, open("data/asia/asia_scoreboard.json", "a"))
-                    with open("data/asia/asia_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"] + "\n")
-                            return redirect("asia_end")
+                if index >= 10:
+                    score = int(request.form["score"])
+                    correct_answer = (request.form["correct_answer"])
+                    user_answer = request.form["user_answer"].title()
+                    
+                    if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
+                        score = int(request.form["score"])
+                        score += 1
+                        #submit_score = ({"Score": score, "Username": asia_username})
+                        with open("data/asia/asia_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": asia_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/asia/asia_final_score.txt", "a") as answer:
+                            answer.write(str(score))
+                            
+                    elif user_answer != correct_answer: # if answer is not correct, submit final score and username
+                        #submit_score = ({"Score": request.form["score"], "Username": asia_username})
+                        with open("data/asia/asia_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": asia_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/asia/asia_final_score.txt", "a") as answer:
+                            answer.write(request.form["score"])
+                            
+                    return redirect("asia_end")
 
     incorrect_answer = get_asia_incorrect_answer()
 
@@ -320,7 +362,8 @@ def asia_end():
     incorrect_list = get_asia_incorrect_list()
     correct_list = get_asia_correct_list()
     username = get_asia_username()
-    return render_template("asia_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Asia", username=username)
+    leaderboard = sorted(get_asia_leaderboard(),reverse=True)
+    return render_template("asia_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Asia", username=username, leaderboard = leaderboard)
 
 
 """
@@ -369,7 +412,7 @@ def get_australia_score():  # used to record the final score after the final que
     final_score = []
     with open("data/australia/australia_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
-        return final_score
+        return final_score[-1:]
 
 """
 Get Username for final score
@@ -380,7 +423,31 @@ def get_australia_username():  # used to record the current username for display
     final_username = []
     with open("data/australia/australia_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
-        return final_username
+        return final_username[-1:]
+
+
+"""
+Get Leaderboard Data
+"""
+
+
+def get_australia_leaderboard():  # used to get the Leaderboard data from 'australia_leaderboard.json'
+    australia_leaderboard = []
+    with open("data/australia/australia_scoreboard.json", "r") as australia_leaderboard:
+        #australia_leaderboard = json.load(australia_leaderboard)
+        australia_leaderboard = [row for row in australia_leaderboard]
+        return australia_leaderboard[-10:]
+
+
+"""
+Get Leader
+"""
+
+def get_australia_leader():  # used to get the Leaderboard data from 'australia_leaderboard.json'
+    australia_leader = []
+    with open("data/australia/australia_scoreboard.json", "r") as australia_leader:
+        australia_leader = [row for row in australia_leader]
+        return australia_leader[-1:]
 
 
 """ Routing """
@@ -391,7 +458,7 @@ def australia_get_user():
     if request.method == "POST":
         os.remove("data/australia/australia_users.txt")  # removes file and previous data
         with open("data/australia/australia_users.txt", "a") as user_list:
-            user_list.write(request.form["australia_username"] + "\n")
+            user_list.write(request.form["australia_username"])
             os.remove("data/australia/australia_incorrect.txt")  # removes file and previous data
             os.remove("data/australia/australia_last_incorrect.txt")  # removes file and previous data
             os.remove("data/australia/australia_correct.txt")  # removes file and previous data
@@ -435,11 +502,29 @@ def australia_user(australia_username):
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
                 if index >= 10:
-                    submit_score = {"Score": request.form["score"], "Username": australia_username}
-                    json.dump(submit_score, open("data/australia/australia_scoreboard.json", "a"))
-                    with open("data/australia/australia_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"] + "\n")
-                            return redirect("australia_end")
+                    score = int(request.form["score"])
+                    correct_answer = (request.form["correct_answer"])
+                    user_answer = request.form["user_answer"].title()
+                    
+                    if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
+                        score = int(request.form["score"])
+                        score += 1
+                        #submit_score = ({"Score": score, "Username": australia_username})
+                        with open("data/australia/australia_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": australia_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/australia/australia_final_score.txt", "a") as answer:
+                            answer.write(str(score))
+                            
+                    elif user_answer != correct_answer: # if answer is not correct, submit final score and username
+                        #submit_score = ({"Score": request.form["score"], "Username": australia_username})
+                        with open("data/australia/australia_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": australia_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/australia/australia_final_score.txt", "a") as answer:
+                            answer.write(request.form["score"])
+                            
+                    return redirect("australia_end")
 
     incorrect_answer = get_australia_incorrect_answer()
 
@@ -452,7 +537,9 @@ def australia_end():
     incorrect_list = get_australia_incorrect_list()
     correct_list = get_australia_correct_list()
     username = get_australia_username()
-    return render_template("australia_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Australia", username=username)
+    leaderboard = sorted(get_australia_leaderboard(),reverse=True)
+    return render_template("australia_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Australia", username=username, leaderboard = leaderboard)
+
 
 
 """
@@ -501,7 +588,7 @@ def get_europe_score():  # used to record the final score after the final questi
     final_score = []
     with open("data/europe/europe_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
-        return final_score
+        return final_score[-1:]
 
 """
 Get Username for final score
@@ -512,7 +599,31 @@ def get_europe_username():  # used to record the current username for display on
     final_username = []
     with open("data/europe/europe_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
-        return final_username
+        return final_username[-1:]
+
+
+"""
+Get Leaderboard Data
+"""
+
+
+def get_europe_leaderboard():  # used to get the Leaderboard data from 'europe_leaderboard.json'
+    europe_leaderboard = []
+    with open("data/europe/europe_scoreboard.json", "r") as europe_leaderboard:
+        #europe_leaderboard = json.load(europe_leaderboard)
+        europe_leaderboard = [row for row in europe_leaderboard]
+        return europe_leaderboard[-10:]
+
+
+"""
+Get Leader
+"""
+
+def get_europe_leader():  # used to get the Leaderboard data from 'europe_leaderboard.json'
+    europe_leader = []
+    with open("data/europe/europe_scoreboard.json", "r") as europe_leader:
+        europe_leader = [row for row in europe_leader]
+        return europe_leader[-1:]
 
 
 """ Routing """
@@ -523,7 +634,7 @@ def europe_get_user():
     if request.method == "POST":
         os.remove("data/europe/europe_users.txt")  # removes file and previous data
         with open("data/europe/europe_users.txt", "a") as user_list:
-            user_list.write(request.form["europe_username"] + "\n")
+            user_list.write(request.form["europe_username"])
             os.remove("data/europe/europe_incorrect.txt")  # removes file and previous data
             os.remove("data/europe/europe_last_incorrect.txt")  # removes file and previous data
             os.remove("data/europe/europe_correct.txt")  # removes file and previous data
@@ -567,11 +678,29 @@ def europe_user(europe_username):
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
                 if index >= 10:
-                    submit_score = {"Score": request.form["score"], "Username": europe_username}
-                    json.dump(submit_score, open("data/europe/europe_scoreboard.json", "a"))
-                    with open("data/europe/europe_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"] + "\n")
-                            return redirect("europe_end")
+                    score = int(request.form["score"])
+                    correct_answer = (request.form["correct_answer"])
+                    user_answer = request.form["user_answer"].title()
+                    
+                    if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
+                        score = int(request.form["score"])
+                        score += 1
+                        #submit_score = ({"Score": score, "Username": europe_username})
+                        with open("data/europe/europe_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": europe_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/europe/europe_final_score.txt", "a") as answer:
+                            answer.write(str(score))
+                            
+                    elif user_answer != correct_answer: # if answer is not correct, submit final score and username
+                        #submit_score = ({"Score": request.form["score"], "Username": europe_username})
+                        with open("data/europe/europe_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": europe_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/europe/europe_final_score.txt", "a") as answer:
+                            answer.write(request.form["score"])
+                            
+                    return redirect("europe_end")
 
     incorrect_answer = get_europe_incorrect_answer()
 
@@ -584,7 +713,9 @@ def europe_end():
     incorrect_list = get_europe_incorrect_list()
     correct_list = get_europe_correct_list()
     username = get_europe_username()
-    return render_template("europe_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Europe", username=username)
+    leaderboard = sorted(get_europe_leaderboard(),reverse=True)
+    return render_template("europe_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="Europe", username=username, leaderboard = leaderboard)
+
 
 
 """
@@ -633,7 +764,7 @@ def get_n_america_score():  # used to record the final score after the final que
     final_score = []
     with open("data/n_america/n_america_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
-        return final_score
+        return final_score[-1:]
 
 """
 Get Username for final score
@@ -644,7 +775,31 @@ def get_n_america_username():  # used to record the current username for display
     final_username = []
     with open("data/n_america/n_america_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
-        return final_username
+        return final_username[-1:]
+
+
+"""
+Get Leaderboard Data
+"""
+
+
+def get_n_america_leaderboard():  # used to get the Leaderboard data from 'n_america_leaderboard.json'
+    n_america_leaderboard = []
+    with open("data/n_america/n_america_scoreboard.json", "r") as n_america_leaderboard:
+        #n_america_leaderboard = json.load(n_america_leaderboard)
+        n_america_leaderboard = [row for row in n_america_leaderboard]
+        return n_america_leaderboard[-10:]
+
+
+"""
+Get Leader
+"""
+
+def get_n_america_leader():  # used to get the Leaderboard data from 'n_america_leaderboard.json'
+    n_america_leader = []
+    with open("data/n_america/n_america_scoreboard.json", "r") as n_america_leader:
+        n_america_leader = [row for row in n_america_leader]
+        return n_america_leader[-1:]
 
 
 """ Routing """
@@ -655,7 +810,7 @@ def n_america_get_user():
     if request.method == "POST":
         os.remove("data/n_america/n_america_users.txt")  # removes file and previous data
         with open("data/n_america/n_america_users.txt", "a") as user_list:
-            user_list.write(request.form["n_america_username"] + "\n")
+            user_list.write(request.form["n_america_username"])
             os.remove("data/n_america/n_america_incorrect.txt")  # removes file and previous data
             os.remove("data/n_america/n_america_last_incorrect.txt")  # removes file and previous data
             os.remove("data/n_america/n_america_correct.txt")  # removes file and previous data
@@ -699,11 +854,29 @@ def n_america_user(n_america_username):
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
                 if index >= 10:
-                    submit_score = {"Score": request.form["score"], "Username": n_america_username}
-                    json.dump(submit_score, open("data/n_america/n_america_scoreboard.json", "a"))
-                    with open("data/n_america/n_america_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"] + "\n")
-                            return redirect("n_america_end")
+                    score = int(request.form["score"])
+                    correct_answer = (request.form["correct_answer"])
+                    user_answer = request.form["user_answer"].title()
+                    
+                    if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
+                        score = int(request.form["score"])
+                        score += 1
+                        #submit_score = ({"Score": score, "Username": n_america_username})
+                        with open("data/n_america/n_america_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": n_america_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/n_america/n_america_final_score.txt", "a") as answer:
+                            answer.write(str(score))
+                            
+                    elif user_answer != correct_answer: # if answer is not correct, submit final score and username
+                        #submit_score = ({"Score": request.form["score"], "Username": n_america_username})
+                        with open("data/n_america/n_america_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": n_america_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/n_america/n_america_final_score.txt", "a") as answer:
+                            answer.write(request.form["score"])
+                            
+                    return redirect("n_america_end")
 
     incorrect_answer = get_n_america_incorrect_answer()
 
@@ -716,7 +889,8 @@ def n_america_end():
     incorrect_list = get_n_america_incorrect_list()
     correct_list = get_n_america_correct_list()
     username = get_n_america_username()
-    return render_template("n_america_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="N_america", username=username)
+    leaderboard = sorted(get_n_america_leaderboard(),reverse=True)
+    return render_template("n_america_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="N_america", username=username, leaderboard = leaderboard)
 
 
 """
@@ -765,7 +939,7 @@ def get_s_america_score():  # used to record the final score after the final que
     final_score = []
     with open("data/s_america/s_america_final_score.txt", "r") as final_score:
         final_score = [row for row in final_score]
-        return final_score
+        return final_score[-1:]
 
 """
 Get Username for final score
@@ -776,7 +950,31 @@ def get_s_america_username():  # used to record the current username for display
     final_username = []
     with open("data/s_america/s_america_users.txt", "r") as final_username:
         final_username = [row for row in final_username]
-        return final_username
+        return final_username[-1:]
+
+
+"""
+Get Leaderboard Data
+"""
+
+
+def get_s_america_leaderboard():  # used to get the Leaderboard data from 's_america_leaderboard.json'
+    s_america_leaderboard = []
+    with open("data/s_america/s_america_scoreboard.json", "r") as s_america_leaderboard:
+        #s_america_leaderboard = json.load(s_america_leaderboard)
+        s_america_leaderboard = [row for row in s_america_leaderboard]
+        return s_america_leaderboard[-10:]
+
+
+"""
+Get Leader
+"""
+
+def get_s_america_leader():  # used to get the Leaderboard data from 's_america_leaderboard.json'
+    s_america_leader = []
+    with open("data/s_america/s_america_scoreboard.json", "r") as s_america_leader:
+        s_america_leader = [row for row in s_america_leader]
+        return s_america_leader[-1:]
 
 
 """ Routing """
@@ -787,7 +985,7 @@ def s_america_get_user():
     if request.method == "POST":
         os.remove("data/s_america/s_america_users.txt")  # removes file and previous data
         with open("data/s_america/s_america_users.txt", "a") as user_list:
-            user_list.write(request.form["s_america_username"] + "\n")
+            user_list.write(request.form["s_america_username"])
             os.remove("data/s_america/s_america_incorrect.txt")  # removes file and previous data
             os.remove("data/s_america/s_america_last_incorrect.txt")  # removes file and previous data
             os.remove("data/s_america/s_america_correct.txt")  # removes file and previous data
@@ -831,11 +1029,29 @@ def s_america_user(s_america_username):
 
             if request.method == "POST":  # code for finished quiz once all questions have been asked and enter final score in scoreboard
                 if index >= 10:
-                    submit_score = {"Score": request.form["score"], "Username": s_america_username}
-                    json.dump(submit_score, open("data/s_america/s_america_scoreboard.json", "a"))
-                    with open("data/s_america/s_america_final_score.txt", "a") as answer:
-                            answer.write(request.form["score"] + "\n")
-                            return redirect("s_america_end")
+                    score = int(request.form["score"])
+                    correct_answer = (request.form["correct_answer"])
+                    user_answer = request.form["user_answer"].title()
+                    
+                    if user_answer == correct_answer: # if answer is correct, update score and submit final score and username
+                        score = int(request.form["score"])
+                        score += 1
+                        #submit_score = ({"Score": score, "Username": s_america_username})
+                        with open("data/s_america/s_america_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": s_america_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/s_america/s_america_final_score.txt", "a") as answer:
+                            answer.write(str(score))
+                            
+                    elif user_answer != correct_answer: # if answer is not correct, submit final score and username
+                        #submit_score = ({"Score": request.form["score"], "Username": s_america_username})
+                        with open("data/s_america/s_america_scoreboard.json", "a") as json_file:
+                            json.dump({"Score": score, "Username": s_america_username}, json_file, indent=4)
+                            json_file.write("\n")
+                        with open("data/s_america/s_america_final_score.txt", "a") as answer:
+                            answer.write(request.form["score"])
+                            
+                    return redirect("s_america_end")
 
     incorrect_answer = get_s_america_incorrect_answer()
 
@@ -848,7 +1064,8 @@ def s_america_end():
     incorrect_list = get_s_america_incorrect_list()
     correct_list = get_s_america_correct_list()
     username = get_s_america_username()
-    return render_template("s_america_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="S_america", username=username)
+    leaderboard = sorted(get_s_america_leaderboard(),reverse=True)
+    return render_template("s_america_end.html", final_score=final_score, incorrect_list=incorrect_list, correct_list=correct_list, region="S_america", username=username, leaderboard = leaderboard)
 
 
 if __name__ == '__main__':
