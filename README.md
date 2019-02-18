@@ -130,6 +130,8 @@ Line 190 of run.py
 leaderboard = sorted(get_africa_leaderboard(),reverse=True)
 ```
 
+Ideally, the storing and retrieving of certain data (e.g. Username, User Answer) would be achieved by using `Sessions`, however this was not covered in the learning material.
+
 Lastly, when rendering the `Username`and `Score`variables on the results/end of game page, the data displays with square brackets around it:
 
 ![username_score_display](https://user-images.githubusercontent.com/28737216/52918042-7351fd80-32ea-11e9-9c62-d603f5fd2c59.png)
